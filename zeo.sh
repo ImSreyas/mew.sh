@@ -2,6 +2,9 @@
 
 final_target=~/userfiles
 
+# Library file target
+# lib_target=~/.zeo/lib
+lib_target=./scripts
 # Shell targets 
 bash_target=~/.bashrc
 fish_target=~/.config/fish/config.fish
@@ -15,28 +18,6 @@ if ! [[ -d $final_target ]]; then
     mkdir -p $final_target
 fi
 
-bash_sync() {
-    if test -f $bash_target; then
-        while true; do 
-            read -p "Do you want to backup bash config file to dotfiles? (y/n) : " confirmation 
-            case $confirmation in 
-                y)
-                    cp $bash_target $final_target 
-                    echo "Bash config file copied to $final_target"
-                    break 
-                    ;;
-                n)
-                    echo "No changes are made..."
-                    break
-                    ;;
-                *)
-                    echo "Invalid input..."
-                    ;;
-            esac
-        done
-    else 
-        echo "Bash file not found..."
-    fi
-}
+source $lib_target/bash_sync.sh
 
 bash_sync 
