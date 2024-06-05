@@ -1,9 +1,6 @@
-
 # Bash config file target 
 bash_target=~/.bashrc
 file_name=.bashrc
-# actual_file="../packages.txt"
-# temp_file="copy.txt"
 
 bash_sync() {
     if test -f $bash_target; then
