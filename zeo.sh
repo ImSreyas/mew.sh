@@ -6,7 +6,6 @@ final_target=~/userfiles
 # lib_target=~/.zeo/lib
 lib_target=./scripts
 # Shell targets 
-bash_target=~/.bashrc
 fish_target=~/.config/fish/config.fish
 zsh_target=~/.zshrc
 
