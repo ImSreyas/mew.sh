@@ -47,7 +47,7 @@ update() {
                 fi
             done
         else 
-            echo "Already upto date..."
+            echo -e "\e[32mAlready upto date...\e[0m"
         fi
     else 
         cp $fish_target $final_target 
