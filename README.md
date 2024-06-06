@@ -1,5 +1,8 @@
 <h1 align="center">mew</h1>
 ✨ A Backup syncing command line tool for backing up dotfiles. 🐧
+<br><br>
+
+`🚧 Under Development 🚧`
 
 ## What is mew 
 
