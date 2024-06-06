@@ -5,5 +5,4 @@
 
 Run the installation script
 ```bash
-git clone https://github.com/ImSreyas/mew.git && cd mew && sh install.sh
-```
+git clone https://github.com/ImSreyas/mew.git && cd mew && chmod +x bin/mew.sh && sh install.sh```
