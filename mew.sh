@@ -16,18 +16,32 @@ if ! [[ -d $final_target ]]; then
     mkdir -p $final_target
 fi
 
+# Printing line with a special character 
+function print_symbol_line() {
+    local symbol="$1" 
+    local num_chars=$2
+    local default_num_chars=8  
+    local default_symbol="-"
+
+    for i in $(seq 1 ${num_chars:-$default_num_chars}); do 
+        echo -n -e "\e[36m${symbol:-$default_symbol}\e[0m"
+    done; echo
+}
+
 # Errors 
 # Common Err fix
-common_err_fix() {
+function common_err_fix() {
     echo -e "\nCommon Error fix\n----------------"
     echo -e "Reinstall : \e[33m git clone https://github.com/ImSreyas/mew.git && cd mew && ./install.sh\e[0m\n"
 }
 # Source file not found error message 
-source_err() {
+function source_err() {
     echo -e "\nErrors\n------"
     echo -e "File not found : \e[31m$1\e[0m at $2" >&2
     common_err_fix
 }
+
+print_symbol_line "#"
 
 # Importing SOURCE files 
 # Targets 
@@ -48,4 +62,4 @@ else
     fish_sync 
 fi
 
-echo 
+print_symbol_line "#"

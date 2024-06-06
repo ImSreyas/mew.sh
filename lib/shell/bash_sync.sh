@@ -1,8 +1,9 @@
-# Bash config file target 
-bash_target=~/.bashrc
-file_name=.bashrc
 
-bash_sync() {
+function bash_sync() {
+    # Bash config file target 
+    local bash_target=~/.bashrc
+    local file_name=.bashrc
+
     if test -f $bash_target; then
         while true; do 
             read -p "Do you want to backup bash config file to dotfiles? (y/n) : " confirmation 
@@ -25,7 +26,7 @@ bash_sync() {
     fi
 }
 
-update() {
+function update() {
     if [[ -f $final_target/$file_name ]]; then 
         if ! cmp -s $final_target/$file_name $bash_target; then
             diff --color=always $final_target/$file_name $bash_target

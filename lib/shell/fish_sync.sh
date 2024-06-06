@@ -1,8 +1,9 @@
-# fish config file target 
-fish_target=~/.config/fish/config.fish
-file_name=config.fish
 
-fish_sync() {
+function fish_sync() {
+    # fish config file target 
+    local fish_target=~/.config/fish/config.fish
+    local file_name=config.fish
+
     if test -f $fish_target; then
         while true; do 
             read -p "Do you want to backup fish config file to dotfiles? (y/n) : " confirmation 
@@ -25,7 +26,7 @@ fish_sync() {
     fi
 }
 
-update() {
+function update() {
     if [[ -f $final_target/$file_name ]]; then 
         if ! cmp -s $final_target/$file_name $fish_target; then
             echo -e "\nUpcoming changes\n----------------"
