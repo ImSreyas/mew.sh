@@ -5,8 +5,12 @@
 final_target=~/userfiles
 
 # Library directory target
-# lib_target=~/.zeo/lib
-lib_target=./lib
+lib_target=""
+if [[ -d ../lib ]]; then 
+    lib_target=../lib
+else 
+    lib_target=~/.mew/lib
+fi
 
 # Creating USERFILES directory if not already exists
 if ! [[ -d $final_target ]]; then
