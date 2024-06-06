@@ -6,7 +6,7 @@ final_target=~/userfiles
 
 # Library directory target
 # lib_target=~/.zeo/lib
-lib_target=./scripts
+lib_target=./lib
 
 # Creating USERFILES directory if not already exists
 if ! [[ -d $final_target ]]; then
@@ -47,3 +47,5 @@ if ! source $fish_sync_target 2>/dev/null; then
 else 
     fish_sync 
 fi
+
+echo 
