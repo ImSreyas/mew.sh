@@ -25,7 +25,7 @@ upcoming features
 
 
 ### Currently supported config files
-- bashrc
-- fish
+- bash shell
+- fish shell
   
 
