@@ -36,9 +36,7 @@ function common_err_fix() {
 }
 # Source file not found error message 
 function source_err() {
-    echo -e "\nErrors\n------"
-    echo -e "File not found : \e[31m$1\e[0m at $2" >&2
-    common_err_fix
+    echo "File not found : \e[31m$1\e[0m at $2"
 }
 
 print_symbol_line "#"
@@ -50,16 +48,25 @@ fish_sync_target=$lib_target/shell/fish_sync.sh
 
 # Checking availability of the SOURCE files 
 # Bash 
-if ! source $bash_sync_target 2>/dev/null; then
-    source_err "bash_sync.sh" "$lib_target/shell/bash_sync.sh"
-else 
+err_str=""
+if [[ -f $bash_sync_target ]]; then
+    source $bash_sync_target
     bash_sync 
+else 
+    err_str+="$(source_err "bash_sync.sh" "$lib_target/shell/bash_sync.sh")\n"
 fi
 # Fish 
-if ! source $fish_sync_target 2>/dev/null; then
-    source_err "fish_sync.sh" "$lib_target/shell/fish_sync.sh"
-else 
+if [[ -f $fish_sync_target ]]; then
+    source $fish_sync_target
     fish_sync 
+else 
+    err_str+="$(source_err "fish_sync.sh" "$lib_target/shell/fish_sync.sh")"
+fi
+# Checking if any errors found 
+if [[ "$err_str" != "" ]]; then 
+    echo -e "\nErrors\n------"
+    echo -e $err_str
+    common_err_fix
 fi
 
 print_symbol_line "#"
