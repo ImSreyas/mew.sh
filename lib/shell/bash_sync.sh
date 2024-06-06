@@ -29,7 +29,7 @@ function bash_sync() {
 function update() {
     if [[ -f $final_target/$file_name ]]; then 
         if ! cmp -s $final_target/$file_name $bash_target; then
-            diff --color=always $final_target/$file_name $bash_target
+            diff -c --color=always $final_target/$file_name $bash_target
             echo 
             while true; do
                 echo -n "Do you want to update? (y/n): "
