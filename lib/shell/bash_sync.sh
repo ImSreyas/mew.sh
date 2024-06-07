@@ -13,7 +13,7 @@ function bash_sync() {
                     break 
                     ;;
                 "n" | "no" | "No" | "N" | "NO" | "")
-                    echo "No changes are made..."
+                    echo -e "$(get_color_code "yellow")No changes are made...$(get_color_code "unset")"
                     break
                     ;;
                 "q" | "Q") 
@@ -45,7 +45,7 @@ function update() {
                     echo -e "$(get_color_code "green")Bash config updated...$(get_color_code "unset")"
                     break
                 elif [ "$confirmation" = "n" ]; then 
-                    echo "No changes are made..."
+                    echo -e "$(get_color_code "yellow")No changes are made...$(get_color_code "unset")"
                     break
                 else 
                     echo -e "$(get_color_code "red")Invalid option...$(get_color_code "unset")"
