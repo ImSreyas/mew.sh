@@ -66,7 +66,7 @@ function common_err_fix() {
 
     echo -n "Reinstall : "
     echo -e -n "$(get_color_code "yellow")" # Setting yellow color
-    echo -e -n "git clone https://github.com/ImSreyas/mew.git && cd mew && chmod +x ./bin/mew.sh && ./install.sh"
+    echo -e -n "git clone https://github.com/ImSreyas/mew.git && cd mew && sh install.sh"
     echo -e "$(get_color_code "unset")" # Unsetting yellow color
     echo
 }
