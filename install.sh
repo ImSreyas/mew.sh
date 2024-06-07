@@ -31,7 +31,11 @@ cp -rf -p $main_lib $main_dir
 # Setting environment variables for mew 
 bash_target=~/.bashrc
 fish_target=~/.config/fish/config.fish
+zsh_target=~/.zshrc
 export_query='export PATH="$PATH:$HOME/.mew/bin/"' 
+
+# Checking if SHELL available 
+# Bash
 if [[ -f $bash_target ]]; then 
     if ! grep -q "$export_query" $bash_target; then
         {
@@ -40,12 +44,22 @@ if [[ -f $bash_target ]]; then
         } >> $bash_target
     fi
 fi
+# Fish
 if [[ -f $fish_target ]]; then 
     if ! grep -q "$export_query" $fish_target; then
         {
             echo -e "\n# Mew path"
             echo $export_query
         } >> $fish_target
+    fi
+fi
+# Zsh 
+if [[ -f $zsh_target ]]; then 
+    if ! grep -q "$export_query" $zsh_target; then
+        {
+            echo -e "\n# Mew path"
+            echo $export_query
+        } >> $zsh_target
     fi
 fi
 
