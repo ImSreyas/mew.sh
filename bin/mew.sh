@@ -5,9 +5,13 @@
 final_target=~/userfiles
 
 # Library directory target
+# Production environment 
 lib_target=~/.mew/lib
+# Dev environment 
 if [[ -d ../lib ]]; then 
     lib_target=../lib
+elif [[ -d ./lib ]]; then
+    lib_target=./lib
 fi
 
 # Creating USERFILES directory if not already exists
@@ -18,31 +22,57 @@ if ! [[ -d $final_target ]]; then
     mkdir -p $final_target
 fi
 
+# Color code finder 
+function get_color_code() {
+    local color_name="$1"
+    local color_code="\e[0m"
+
+    if [[ $color_name = "black" ]]; then color_code="\e[30m"
+    elif [[ $color_name = "red" ]]; then color_code="\e[31m"
+    elif [[ $color_name = "green" ]]; then color_code="\e[32m"
+    elif [[ $color_name = "yellow" ]]; then color_code="\e[33m"
+    elif [[ $color_name = "blue" ]]; then color_code="\e[34m"
+    elif [[ $color_name = "magenta" ]]; then color_code="\e[35m"
+    elif [[ $color_name = "cyan" ]]; then color_code="\e[36m"
+    elif [[ $color_name = "white" ]]; then color_code="\e[37m"
+    else color_code="\e[0m"
+    fi
+
+    echo $color_code
+}
+
 # Printing line with a special character 
 function print_symbol_line() {
-    local symbol="$1" 
-    local num_chars=$2
-    local default_num_chars=8  
-    local default_symbol="-"
+    local symbol="${1:-"-"}" 
+    local num_chars=${2:-8}
+    local color="${3:-"white"}"
 
-    for i in $(seq 1 ${num_chars:-$default_num_chars}); do 
-        echo -n -e "\e[36m${symbol:-$default_symbol}\e[0m"
-    done; echo
+    echo -n -e $(get_color_code $color) # Setting color 
+    for i in $(seq 1 $num_chars); do 
+        echo -n "$symbol"
+    done; echo -e "\e[0m" # Unsetting color
 }
 
 # !Errors 
 # Source file not found error message 
 function source_err() {
-    echo "File not found : \e[31m$1\e[0m at $2"
+    echo "File not found : $(get_color_code "red")$1$(get_color_code "unset") at $2"
 }
 # Common Err fix
 function common_err_fix() {
-    echo -e "\nCommon Error fix\n----------------"
-    echo -e "Reinstall : \e[33m git clone https://github.com/ImSreyas/mew.git && cd mew && ./install.sh\e[0m\n"
+    echo 
+    echo "Common Error fix"
+    print_symbol_line "-" 16
+
+    echo -n "Reinstall : "
+    echo -e -n "$(get_color_code "yellow")" # Setting yellow color
+    echo -e -n "git clone https://github.com/ImSreyas/mew.git && cd mew && chmod +x ./bin/mew.sh && ./install.sh"
+    echo -e "$(get_color_code "unset")" # Unsetting yellow color
+    echo
 }
 
 # ? Program starts here 
-print_symbol_line "#"
+print_symbol_line "#" 8 "cyan"
 
 # Importing SOURCE files 
 # Targets 
@@ -56,21 +86,22 @@ if [[ -f $bash_sync_target ]]; then
     source $bash_sync_target
     bash_sync 
 else 
-    err_str+="$(source_err "bash_sync.sh" "$lib_target/shell/bash_sync.sh")\n" # Appending error 
+    err_str+="$(source_err "bash_sync.sh" "mew/lib/shell/bash_sync.sh")\n" # Appending error 
 fi
 # Fish 
 if [[ -f $fish_sync_target ]]; then
     source $fish_sync_target
     fish_sync 
 else 
-    err_str+="$(source_err "fish_sync.sh" "$lib_target/shell/fish_sync.sh")" # Appending error 
+    err_str+="$(source_err "fish_sync.sh" "mew/lib/shell/fish_sync.sh")" # Appending error 
 fi
 # CHECKING and DISPLAYING any Errors if found 
 if [[ "$err_str" != "" ]]; then 
-    echo -e "\nErrors\n------"
+    echo -e "\nErrors"
+    print_symbol_line "-" 6
     echo -e $err_str
     common_err_fix
 fi
 
-print_symbol_line "#"
+print_symbol_line "#" 8 "cyan"
 # ? Program ends here
