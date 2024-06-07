@@ -2,7 +2,7 @@
 ✨ A Backup syncing command line tool for backing up dotfiles. 🐧
 <br><br>
 
-`🚧 Under Development 🚧`
+`🚧 New Features Under Development 🚧`
 
 ## What is mew 
 
