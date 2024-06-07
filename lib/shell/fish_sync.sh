@@ -43,7 +43,7 @@ function update() {
                 
                 if [ "$confirmation" = "y" ]; then
                     cp $fish_target $final_target 
-                    echo "fish config updated..."
+                    echo -e "$(get_color_code "green")Fish config updated...$(get_color_code "unset")"
                     break
                 elif [ "$confirmation" = "n" ]; then 
                     echo "No changes are made..."
