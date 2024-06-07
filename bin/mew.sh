@@ -71,8 +71,17 @@ function common_err_fix() {
     echo
 }
 
+function header() {
+    print_symbol_line "#" 8 "cyan"
+}
+function footer() {
+    print_symbol_line "#" 8 "cyan"
+}
+
 # ? Program starts here 
-print_symbol_line "#" 8 "cyan"
+header
+
+echo "Select config files for creating backup!"
 
 # Importing SOURCE files 
 # Targets 
@@ -103,5 +112,5 @@ if [[ "$err_str" != "" ]]; then
     common_err_fix
 fi
 
-print_symbol_line "#" 8 "cyan"
+footer
 # ? Program ends here

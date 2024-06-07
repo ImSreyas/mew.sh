@@ -6,18 +6,23 @@ function fish_sync() {
 
     if test -f $fish_target; then
         while true; do 
-            read -p "Do you want to backup fish config file to dotfiles? (y/n) : " confirmation 
+            read -p "Fish config? (y/n/q) : " confirmation 
             case $confirmation in 
-                y)
+                "y" | "yes" | "Yes" | "Y" | "YES")
                     update
                     break 
                     ;;
-                n)
+                "n" | "no" | "No" | "N" | "NO" | "")
                     echo "No changes are made..."
                     break
                     ;;
+                "q" | "Q") 
+                    echo "Completed..."
+                    footer  
+                    exit 0
+                    ;;
                 *)
-                    echo "Invalid input..."
+                    echo -e "$(get_color_code "red")Invalid option...$(get_color_code "unset")"
                     ;;
             esac
         done
@@ -44,14 +49,14 @@ function update() {
                     echo "No changes are made..."
                     break
                 else 
-                    echo "Invalid option..."
+                    echo -e "$(get_color_code "red")Invalid option...$(get_color_code "unset")"
                 fi
             done
         else 
-            echo -e "\e[32mAlready upto date...\e[0m"
+            echo -e "$(get_color_code "green")Already upto date...$(get_color_code "unset")"
         fi
     else 
         cp $fish_target $final_target 
-        echo "fish config file backup created at $final_target"
+        echo -e "$(get_color_code "green")Fish config file backup created at $(get_color_code "yellow")$final_target$(get_color_code "unset")"
     fi 
 }
