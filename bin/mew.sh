@@ -5,11 +5,9 @@
 final_target=~/userfiles
 
 # Library directory target
-lib_target=""
+lib_target=~/.mew/lib
 if [[ -d ../lib ]]; then 
     lib_target=../lib
-else 
-    lib_target=~/.mew/lib
 fi
 
 # Creating USERFILES directory if not already exists
