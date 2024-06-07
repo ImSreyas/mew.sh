@@ -42,7 +42,7 @@ function update() {
                 
                 if [ "$confirmation" = "y" ]; then
                     cp $bash_target $final_target 
-                    echo "Bash config updated..."
+                    echo -e "$(get_color_code "green")Bash config updated...$(get_color_code "unset")"
                     break
                 elif [ "$confirmation" = "n" ]; then 
                     echo "No changes are made..."
