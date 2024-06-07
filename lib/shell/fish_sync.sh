@@ -27,7 +27,7 @@ function fish_sync() {
             esac
         done
     else 
-        echo "fish file not found..."
+        echo "fish config file not found..."
     fi
 }
 

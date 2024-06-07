@@ -87,6 +87,7 @@ echo "Select config files for creating backup!"
 # Targets 
 bash_sync_target=$lib_target/shell/bash_sync.sh
 fish_sync_target=$lib_target/shell/fish_sync.sh
+zsh_sync_target=$lib_target/shell/zsh_sync.sh
 
 # Checking availability of the SOURCE files 
 # Bash 
@@ -102,8 +103,16 @@ if [[ -f $fish_sync_target ]]; then
     source $fish_sync_target
     fish_sync 
 else 
-    err_str+="$(source_err "fish_sync.sh" "mew/lib/shell/fish_sync.sh")" # Appending error 
+    err_str+="$(source_err "fish_sync.sh" "mew/lib/shell/fish_sync.sh")\n" # Appending error 
 fi
+# Zsh
+if [[ -f $zsh_sync_target ]]; then
+    source $zsh_sync_target
+    zsh_sync 
+else 
+    err_str+="$(source_err "zsh_sync.sh" "mew/lib/shell/zsh_sync.sh")" # Appending error 
+fi
+
 # CHECKING and DISPLAYING any Errors if found 
 if [[ "$err_str" != "" ]]; then 
     echo -e "\nErrors"
