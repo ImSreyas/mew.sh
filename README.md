@@ -1,6 +1,6 @@
 <h1 align="center">
   <div>
-    <img width="75%" src="./logo/logo12.png" />
+    <img width="100%" src="./logo/logo_yellow.png" />
   </div>
 </h1>
 <div align="center">✨ A Backup & file syncing command line tool for backing up dotfiles. 🐧 
