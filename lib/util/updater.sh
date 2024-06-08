@@ -1,6 +1,10 @@
 function update() {
     if [[ -f $final_target/$file_name ]]; then 
         if ! cmp -s $final_target/$file_name $file_target; then
+            echo 
+            local header_string="Changes ($file_name)"
+            echo $header_string
+            print_symbol_line "-" ${#header_string} 
             diff -c --color=always $final_target/$file_name $file_target
             echo 
             while true; do
