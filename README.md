@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[hello](#mew)
+[hello](#test)
   
 `🚧 New Features Under Development 🚧`
 </div>
@@ -80,6 +80,6 @@ upcoming features
 - fish shell
 - zsh shell
 
-<h2 id="mew">What is mew</h2>
+<h2 id="test">What is mew</h2>
 
 
