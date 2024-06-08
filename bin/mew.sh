@@ -121,23 +121,32 @@ fi
 echo "Select config files for creating backup!"
 
 # Bash 
-if [[ -f $bash_sync_target ]]; then
-    source $bash_sync_target
-    bash_sync 
-else err_str+="$(source_err "bash_sync.sh" "mew/lib/shell/bash_sync.sh")\n" # Appending error 
+bash_target=~/.bashrc
+if [[ -f $bash_target ]]; then # No need to ask for a backup, if the user don't have .bashrc file
+    if [[ -f $bash_sync_target ]]; then
+        source $bash_sync_target
+        bash_sync 
+    else err_str+="$(source_err "bash_sync.sh" "mew/lib/shell/bash_sync.sh")\n" # Appending error 
+    fi
 fi
 
-# Fish 
-if [[ -f $fish_sync_target ]]; then
-    source $fish_sync_target
-    fish_sync 
-else err_str+="$(source_err "fish_sync.sh" "mew/lib/shell/fish_sync.sh")\n" # Appending error 
+# Fish
+fish_target=~/.config/fish/config.fish
+if [[ -f $fish_target ]]; then  # No need to ask for a backup, if the user don't have config.fish file
+    if [[ -f $fish_sync_target ]]; then
+        source $fish_sync_target
+        fish_sync 
+    else err_str+="$(source_err "fish_sync.sh" "mew/lib/shell/fish_sync.sh")\n" # Appending error 
+    fi
 fi
 # Zsh
-if [[ -f $zsh_sync_target ]]; then
-    source $zsh_sync_target
-    zsh_sync 
-else err_str+="$(source_err "zsh_sync.sh" "mew/lib/shell/zsh_sync.sh")" # Appending error 
+zsh_target=~/.zshrc
+if [[ -f $zsh_target ]]; then  # No need to ask for a backup, if the user don't have .zshrc file
+    if [[ -f $zsh_sync_target ]]; then
+        source $zsh_sync_target
+        zsh_sync 
+    else err_str+="$(source_err "zsh_sync.sh" "mew/lib/shell/zsh_sync.sh")" # Appending error 
+    fi
 fi
 
 # CHECKING and DISPLAYING any Errors if found 
