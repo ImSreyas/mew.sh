@@ -7,6 +7,8 @@ name=mew
 
 # Giving Executable permission to the mew.sh file 
 if [[ -f "./bin/mew.sh" ]]; then chmod +x ./bin/mew.sh; fi
+# Giving Executable permission to the uninstall.sh file 
+if [[ -f "./uninstall.sh" ]]; then chmod +x ./uninstall.sh; fi
 
 old_mew_flag=false
 # Creating folder structure for mew
