@@ -7,16 +7,20 @@
 
 <div align="center">
 
-[hello](#test)
+<h3>Contents</h3>
+
+[What is mew](#what_is_mew)<br>
+[Features](#features)<br>
+[How to install](#how_to_install)
   
 `🚧 New Features Under Development 🚧`
 </div>
 
-## What is mew 
+<h2 id="what_is_mew">What is mew</h2>
 
 `mew` is a command line tool, that will help you take backup of different config files (dotfiles) and store it in the ~/dotfiles folder. Then you can push the folder to github (or any remote repo manager) for safe keeping the files. `mew` will help you avoid the manual copy paste of the config files.
 
-## How to install 
+<h2 id="how_to_install"> How to install </h2> 
 
 Run the installation script (./install.sh)
 
@@ -63,10 +67,10 @@ sh install.sh
 ./uninstall.sh
 ```
 
-## Features ✨
+<h2 id="features"> Features ✨ </h2>
 
 ` Backup configuration files `
-` Sync configaration files ` 
+` Sync configaration files `
 
 upcoming features
 
@@ -80,6 +84,5 @@ upcoming features
 - fish shell
 - zsh shell
 
-<h2 id="test">What is mew</h2>
 
 
