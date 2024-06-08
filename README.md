@@ -4,12 +4,15 @@
   
   `# dotfiles maker` 
 </div>
-<br>
+
 <div align="center">
+
+[hello](#mew)
   
 `🚧 New Features Under Development 🚧`
 </div>
 
+<h2 id="mew">What is mew</h2>
 ## What is mew 
 
 `mew` is a command line tool, that will help you take backup of different config files (dotfiles) and store it in the ~/dotfiles folder. Then you can push the folder to github (or any remote repo manager) for safe keeping the files. `mew` will help you avoid the manual copy paste of the config files.
