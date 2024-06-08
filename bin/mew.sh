@@ -118,7 +118,7 @@ if [[ "$err_str" != "" ]]; then
     exit 0 # There is no point in continuing if either Question or Updater source file is missing
 fi
 
-echo "Select config files for creating backup!"
+echo "Select files for creating backup!"
 
 # Bash 
 bash_target=~/.bashrc
