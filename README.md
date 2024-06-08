@@ -1,5 +1,9 @@
 <h1 align="center">mew</h1>
-<div align="center">✨ A Backup & file syncing command line tool for backing up dotfiles. 🐧</div>
+<div align="center">✨ A Backup & file syncing command line tool for backing up dotfiles. 🐧 
+  <br> 
+  
+  `# dotfiles maker` 
+</div>
 <br>
 <div align="center">
   
