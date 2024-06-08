@@ -6,6 +6,7 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
 
     if [[ $file_target != "" && $file_name != "" && -f $file_target ]]; then
         while true; do 
+            echo
             read -p "$question (y/n/q) : " confirmation 
             case $confirmation in 
                 "y" | "yes" | "Yes" | "Y" | "YES")
