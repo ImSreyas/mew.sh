@@ -1,8 +1,10 @@
 <h1 align="center">mew</h1>
-✨ A Backup syncing command line tool for backing up dotfiles. 🐧
-<br><br>
-
+<div align="center">✨ A Backup & file syncing command line tool for backing up dotfiles. 🐧</div>
+<br>
+<div align="center">
+  
 `🚧 New Features Under Development 🚧`
+</div>
 
 ## What is mew 
 
@@ -10,38 +12,49 @@
 
 ## How to install 
 
-Run the installation script
+Run the installation script (./install.sh)
 
-- Using git
-```bash
-git clone https://github.com/ImSreyas/mew.git && cd mew && sh install.sh
-```
 <div align="center">
   
-  ` OR `
+  ` Using git `
   
 </div>
 
+```bash
+git clone https://github.com/ImSreyas/mew.git && cd mew && sh install.sh
+```
+  ` OR `
 ```bash
 git clone https://github.com/ImSreyas/mew.git
 cd mew
 sh install.sh
 ```
-- Using curl
-```bash
-curl -L -o mew.zip https://github.com/ImSreyas/mew/archive/refs/heads/main.zip && unzip mew.zip && cd mew-main && sh install.sh
-```
+
 <div align="center">
   
-  ` OR `
+  ` Using curl `
   
 </div>
 
+```bash
+curl -L -o mew.zip https://github.com/ImSreyas/mew/archive/refs/heads/main.zip && unzip mew.zip && cd mew-main && sh install.sh
+```
+  ` OR `
 ```bash
 curl -L -o mew.zip https://github.com/ImSreyas/mew/archive/refs/heads/main.zip
 unzip mew.zip
 cd mew-main
 sh install.sh
+```
+
+<div align="center">
+  
+  ` How to uninstall `
+  
+</div>
+
+```bash
+./uninstall.sh
 ```
 
 ## Features ✨
@@ -59,5 +72,6 @@ upcoming features
 ### Currently supported config files
 - bash shell
 - fish shell
+- zsh shell
   
 
