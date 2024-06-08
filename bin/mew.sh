@@ -115,7 +115,7 @@ fi
 if [[ "$err_str" != "" ]]; then 
     error_provider "$err_str"
     footer
-    exit 0
+    exit 0 # There is no point in continuing if either Question or Updater source file is missing
 fi
 
 echo "Select config files for creating backup!"
