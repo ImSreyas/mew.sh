@@ -1,4 +1,8 @@
-<h1 align="center">mew</h1>
+<h1 align="center">
+  <div>
+    <img width="75%" src="./logo/logo12.png" />
+  </div>
+</h1>
 <div align="center">✨ A Backup & file syncing command line tool for backing up dotfiles. 🐧 
   <br> 
   
