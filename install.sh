@@ -29,38 +29,19 @@ cp -rf -p $main_executable $bin_target/$name
 cp -rf -p $main_lib $main_dir
 
 # Setting environment variables for mew 
-bash_target=~/.bashrc
-fish_target=~/.config/fish/config.fish
-zsh_target=~/.zshrc
 export_query='export PATH="$PATH:$HOME/.mew/bin/"' 
+shell_targets=(~/.bashrc ~/.config/fish/config.fish ~/.zshrc)
 
 # Checking if SHELL available 
-# Bash
-if [[ -f $bash_target ]]; then 
-    if ! grep -q "$export_query" $bash_target; then
-        {
-            echo -e "\n# Mew path"
-            echo $export_query
-        } >> $bash_target
+for shell_target in ${shell_targets[@]}; do
+    if [[ -f $shell_target ]]; then 
+        if ! grep -q "$export_query" $shell_target; then
+            {
+                echo -e "\n# mew path"
+                echo $export_query
+            } >> $shell_target
+        fi
     fi
-fi
-# Fish
-if [[ -f $fish_target ]]; then 
-    if ! grep -q "$export_query" $fish_target; then
-        {
-            echo -e "\n# Mew path"
-            echo $export_query
-        } >> $fish_target
-    fi
-fi
-# Zsh 
-if [[ -f $zsh_target ]]; then 
-    if ! grep -q "$export_query" $zsh_target; then
-        {
-            echo -e "\n# Mew path"
-            echo $export_query
-        } >> $zsh_target
-    fi
-fi
+done
 
 echo "Installed..."
