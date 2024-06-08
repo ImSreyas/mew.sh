@@ -98,14 +98,14 @@ zsh_sync_target=$lib_target/shell/zsh_sync.sh
 err_str=""
 
 # Question 
-question_path="../lib/util/question.sh"
+question_path=$lib_target/util/question.sh
 if [[ -f $question_path ]]; then 
     source $question_path
 else err_str+="$(source_err "question.sh" "mew/lib/util/question.sh")\n" # Appending error 
 fi
 
 # Updater 
-updater_path="../lib/util/updater.sh"
+updater_path=$lib_target/util/updater.sh
 if [[ -f $updater_path ]]; then 
     source $updater_path
 else err_str+="$(source_err "updater.sh" "mew/lib/util/updater.sh")" # Appending error 
