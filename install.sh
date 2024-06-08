@@ -19,9 +19,9 @@ mkdir -p $main_dir
 mkdir -p "$main_dir/bin/"
 
 if $old_mew_flag; then
-    echo "Reinstalling mew..."
+    echo -e "\e[33mReinstalling mew...\e[0m"
 else 
-    echo "Installing mew..."
+    echo -e "\e[33mInstalling mew...\e[0m"
 fi
 
 # Copying mew binary and library to main directory
@@ -30,7 +30,7 @@ cp -rf -p $main_lib $main_dir
 
 # Setting environment variables for mew 
 export_query='export PATH="$PATH:$HOME/.mew/bin/"' 
-shell_targets=(~/.bashrc ~/.config/fish/config.fish ~/.zshrc)
+shell_targets=(~/.bashrc ~/.config/fish/config.fish ~/.zshrc ~/.kshrc ~/.tcshrc ~/.cshrc)
 
 # Checking if SHELL available 
 for shell_target in ${shell_targets[@]}; do
@@ -44,4 +44,4 @@ for shell_target in ${shell_targets[@]}; do
     fi
 done
 
-echo "Installed..."
+echo -e "\e[32mInstalled...\e[0m"
