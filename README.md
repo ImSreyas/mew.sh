@@ -40,9 +40,10 @@ upcoming features
 - bash shell
 - fish shell
 - zsh shell
+- vscode user settings
+
 ### Upcoming support
-- vs code user settings
-- vs code extensions
+- vscode extensions
 - vim
 - nvim
 - i3
