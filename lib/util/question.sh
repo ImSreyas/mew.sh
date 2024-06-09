@@ -3,6 +3,7 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
     local file_name=${1:-""} # Name of the file to be backuped
     local file_target=${2:-""} # Path of the file to be backuped
     local question=${3:-"$file_name?"} # Question for the file backup
+    local output_target=${4:-$final_target} # Output target where the file should be copied to
 
     if [[ $file_target != "" && $file_name != "" && -f $file_target ]]; then
         while true; do 
@@ -10,7 +11,7 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
             read -p "$question (y/n/q) : " confirmation 
             case $confirmation in 
                 "y" | "yes" | "Yes" | "Y" | "YES")
-                    update
+                    update 
                     break 
                     ;;
                 "n" | "no" | "No" | "N" | "NO" | "")
