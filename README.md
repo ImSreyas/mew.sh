@@ -40,6 +40,19 @@ upcoming features
 - bash shell
 - fish shell
 - zsh shell
+### Upcoming support
+- vs code user settings
+- vs code extensions
+- vim
+- nvim
+- i3
+- sway
+- hyprland
+- tmux
+- gitconfig
+- dnf | apt | pacman | aur | zypper
+- snap
+- flatpak
 
 <h2 id="how_to_install"> How to install </h2> 
 
