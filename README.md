@@ -41,10 +41,10 @@ upcoming features
 - fish shell
 - zsh shell
 - vscode user settings
+- vim
 
 ### Upcoming support
 - vscode extensions
-- vim
 - nvim
 - i3
 - sway
