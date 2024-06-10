@@ -68,7 +68,6 @@ function common_err_fix() {
     echo -e -n "$(get_color_code "yellow")" # Setting yellow color
     echo -e -n "git clone https://github.com/ImSreyas/mew.git && cd mew && sh install.sh"
     echo -e "$(get_color_code "unset")" # Unsetting yellow color
-    echo
 }
 function error_provider() {
     err_string=${1:-"Unknown Error"}
@@ -80,8 +79,10 @@ function error_provider() {
 
 function header() {
     print_symbol_line "#" 8 "cyan"
+    echo
 }
 function footer() {
+    echo
     print_symbol_line "#" 8 "cyan"
 }
 
@@ -98,72 +99,72 @@ else err_str+="$(source_err "question.sh" "mew/lib/util/question.sh")\n" # Appen
 fi
 
 # Updater 
-updater_source_path=$lib_target/util/updater.sh # Source targets 
-if [[ -f $updater_source_path ]]; then 
-    source $updater_source_path
+updater_source_source_path=$lib_target/util/updater.sh # Source targets  # Source targets 
+if [[ -f $updater_source_source_path ]]; then 
+    source $updater_source_source_path
 else err_str+="$(source_err "updater.sh" "mew/lib/util/updater.sh")" # Appending error 
 fi
 
 # Checking Question or Updater source files are missing
 if [[ "$err_str" != "" ]]; then 
     error_provider "$err_str"
-    footer
-    exit 0 # There is no point in continuing if either Question or Updater source file is missing
-fi
+    # footer
+    # exit 0 # There is no point in continuing if either Question or Updater source file is missing
+else 
+    echo "Select files for creating backup!"
 
-echo "Select files for creating backup!"
+    # Bash 
+    bash_target=~/.bashrc # Actual file target
+    bash_source_path=$lib_target/shell/bash_sync.sh # Source targets 
 
-# Bash 
-bash_target=~/.bashrc # Actual file target
-bash_source_path=$lib_target/shell/bash_sync.sh # Source targets 
-
-if [[ -f $bash_target ]]; then # No need to ask for a backup, if the user don't have .bashrc file
-    if [[ -f $bash_source_path ]]; then
-        source $bash_source_path
-        bash_sync 
-    else err_str+="$(source_err "bash_sync.sh" "mew/lib/shell/bash_sync.sh")\n" # Appending error 
+    if [[ -f $bash_target ]]; then # No need to ask for a backup, if the user don't have .bashrc file
+        if [[ -f $bash_source_path ]]; then
+            source $bash_source_path
+            bash_sync 
+        else err_str+="$(source_err "bash_sync.sh" "mew/lib/shell/bash_sync.sh")\n" # Appending error 
+        fi
     fi
-fi
 
-# Fish
-fish_target=~/.config/fish/config.fish # Actual file target
-fish_source_path=$lib_target/shell/fish_sync.sh # Source targets 
+    # Fish
+    fish_target=~/.config/fish/config.fish # Actual file target
+    fish_source_path=$lib_target/shell/fish_sync.sh # Source targets 
 
-if [[ -f $fish_target ]]; then  # No need to ask for a backup, if the user don't have config.fish file
-    if [[ -f $fish_source_path ]]; then
-        source $fish_source_path
-        fish_sync 
-    else err_str+="$(source_err "fish_sync.sh" "mew/lib/shell/fish_sync.sh")\n" # Appending error 
+    if [[ -f $fish_target ]]; then  # No need to ask for a backup, if the user don't have config.fish file
+        if [[ -f $fish_source_path ]]; then
+            source $fish_source_path
+            fish_sync 
+        else err_str+="$(source_err "fish_sync.sh" "mew/lib/shell/fish_sync.sh")\n" # Appending error 
+        fi
     fi
-fi
 
-# Zsh
-zsh_target=~/.zshrc # Actual file target
-zsh_source_path=$lib_target/shell/zsh_sync.sh # Source targets 
+    # Zsh
+    zsh_target=~/.zshrc # Actual file target
+    zsh_source_path=$lib_target/shell/zsh_sync.sh # Source targets 
 
-if [[ -f $zsh_target ]]; then  # No need to ask for a backup, if the user don't have .zshrc file
-    if [[ -f $zsh_source_path ]]; then
-        source $zsh_source_path
-        zsh_sync 
-    else err_str+="$(source_err "zsh_sync.sh" "mew/lib/shell/zsh_sync.sh")" # Appending error 
+    if [[ -f $zsh_target ]]; then  # No need to ask for a backup, if the user don't have .zshrc file
+        if [[ -f $zsh_source_path ]]; then
+            source $zsh_source_path
+            zsh_sync 
+        else err_str+="$(source_err "zsh_sync.sh" "mew/lib/shell/zsh_sync.sh")" # Appending error 
+        fi
     fi
-fi
 
-# Vscode user settings
-vscode_user_settings_target=~/.config/Code/User/settings.json # Actual file target
-vscode_user_settings_source_path=$lib_target/vscode/user_settings_sync.sh # Source targets 
+    # Vscode user settings
+    vscode_user_settings_target=~/.config/Code/User/settings.json # Actual file target
+    vscode_user_settings_source_path=$lib_target/vscode/user_settings_sync.sh # Source targets 
 
-if [[ -f $vscode_user_settings_target ]]; then  # No need to ask for a backup, if the user don't have settings.json file
-    if [[ -f $vscode_user_settings_source_path ]]; then
-        source $vscode_user_settings_source_path
-        vscode_user_settings_sync 
-    else err_str+="$(source_err "user_settings_sync.sh" "mew/lib/vscode/user_settings_sync.sh")" # Appending error 
+    if [[ -f $vscode_user_settings_target ]]; then  # No need to ask for a backup, if the user don't have settings.json file
+        if [[ -f $vscode_user_settings_source_path ]]; then
+            source $vscode_user_settings_source_path
+            vscode_user_settings_sync 
+        else err_str+="$(source_err "user_settings_sync.sh" "mew/lib/vscode/user_settings_sync.sh")" # Appending error 
+        fi
     fi
-fi
 
-# CHECKING and DISPLAYING any Errors if found 
-if [[ "$err_str" != "" ]]; then 
-    error_provider "$err_str"
+    # CHECKING and DISPLAYING any Errors if found 
+    if [[ "$err_str" != "" ]]; then 
+        error_provider "$err_str"
+    fi
 fi
 
 footer
