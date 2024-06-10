@@ -2,7 +2,8 @@
 
 # set -e
 
-final_target=~/userfiles
+declare final_target=~/userfiles
+readonly final_target
 
 # Library directory target
 # Production environment 
