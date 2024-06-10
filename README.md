@@ -3,7 +3,7 @@
     <img width="100%" src="https://github.com/ImSreyas/mew/blob/assets/logo/mew.png" />
   </div>
 </h1>
-<div align="center">✨ A Backup & file syncing command line tool for backing up dotfiles. 🐧 
+<div align="center">✨ A File Backup & Syncing command line tool for backing up dotfiles. 🐧 
   <br> 
   
   `# dotfiles maker` 
