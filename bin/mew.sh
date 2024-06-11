@@ -2,7 +2,7 @@
 
 # set -e
 
-declare final_target=~/userfiles
+declare final_target=~/dotfiles
 readonly final_target
 
 # Library directory target
