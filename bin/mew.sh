@@ -175,8 +175,6 @@ else
         fi
     fi
 
-<<<<<<< HEAD
-=======
     # dnf 
     dnf_source_path=$lib_target/package-manager/dnf_sync.sh # Source targets 
 
@@ -188,7 +186,6 @@ else
         fi
     fi
 
->>>>>>> dev
     # Lf 
     lf_target=~/.config/lf/lfrc # Actual file target
     lf_source_path=$lib_target/lf/lf_sync.sh # Source targets 
