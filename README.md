@@ -41,11 +41,8 @@ upcoming features
 - fish shell
 - zsh shell
 - vim
-<<<<<<< HEAD
-=======
 - vscode user settings
 - dnf
->>>>>>> dev
 - lf
 
 ### Upcoming support
