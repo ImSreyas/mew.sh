@@ -42,6 +42,7 @@ upcoming features
 - zsh shell
 - vscode user settings
 - vim
+- lf
 
 ### Upcoming support
 - vscode extensions
