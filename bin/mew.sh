@@ -2,7 +2,7 @@
 
 # set -e
 
-declare final_target=~/userfiles
+declare final_target=~/dotfiles
 readonly final_target
 
 # Library directory target
@@ -175,6 +175,20 @@ else
         fi
     fi
 
+<<<<<<< HEAD
+=======
+    # dnf 
+    dnf_source_path=$lib_target/package-manager/dnf_sync.sh # Source targets 
+
+    if command -v dnf > /dev/null 2>&1; then  # No need to ask for a backup, if the user don't have dnf package manager (a non RHEL/Fedora user)
+        if [[ -f $dnf_source_path ]]; then
+            source $dnf_source_path
+            dnf_sync 
+        else err_str+="$(source_err "dnf_sync.sh" "mew/lib/dnf/dnf_sync.sh")" # Appending error 
+        fi
+    fi
+
+>>>>>>> dev
     # Lf 
     lf_target=~/.config/lf/lfrc # Actual file target
     lf_source_path=$lib_target/lf/lf_sync.sh # Source targets 
