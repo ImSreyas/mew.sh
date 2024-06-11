@@ -40,8 +40,9 @@ upcoming features
 - bash shell
 - fish shell
 - zsh shell
-- vscode user settings
 - vim
+- vscode user settings
+- dnf
 - lf
 
 ### Upcoming support
@@ -52,7 +53,7 @@ upcoming features
 - hyprland
 - tmux
 - gitconfig
-- dnf | apt | pacman | aur | zypper
+- apt | pacman | aur | zypper
 - snap
 - flatpak
 
