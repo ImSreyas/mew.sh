@@ -28,7 +28,7 @@ function update() {
                         break
                         ;;
                     "q" | "Q") 
-                        echo "Completed..."
+                        echo -e "$(get_color_code "green")Completed...$(get_color_code "unset")"
                         footer  
                         exit 0
                         ;;

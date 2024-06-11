@@ -187,6 +187,17 @@ else
         fi
     fi
 
+    # dnf 
+    dnf_source_path=$lib_target/package-manager/dnf_sync.sh # Source targets 
+
+    if command -v dnf > /dev/null 2>&1; then  # No need to ask for a backup, if the user don't have dnfrc file
+        if [[ -f $dnf_source_path ]]; then
+            source $dnf_source_path
+            dnf_sync 
+        else err_str+="$(source_err "dnf_sync.sh" "mew/lib/dnf/dnf_sync.sh")" # Appending error 
+        fi
+    fi
+
     # CHECKING and DISPLAYING any Errors if found 
     if [[ "$err_str" != "" ]]; then 
         error_provider "$err_str"
