@@ -154,7 +154,7 @@ else
     vim_target=~/.vimrc # Actual file target
     vim_source_path=$lib_target/vim/vim_sync.sh # Source targets 
 
-    if [[ -f $vim_target ]]; then  # No need to ask for a backup, if the user don't have .zshrc file
+    if [[ -f $vim_target ]]; then  # No need to ask for a backup, if the user don't have .vimrc file
         if [[ -f $vim_source_path ]]; then
             source $vim_source_path
             vim_sync 
@@ -172,6 +172,18 @@ else
             source $vscode_user_settings_source_path
             vscode_user_settings_sync 
         else err_str+="$(source_err "user_settings_sync.sh" "mew/lib/vscode/user_settings_sync.sh")" # Appending error 
+        fi
+    fi
+
+    # Lf 
+    lf_target=~/.config/lf/lfrc # Actual file target
+    lf_source_path=$lib_target/lf/lf_sync.sh # Source targets 
+
+    if [[ -f $lf_target ]]; then  # No need to ask for a backup, if the user don't have lfrc file
+        if [[ -f $lf_source_path ]]; then
+            source $lf_source_path
+            lf_sync 
+        else err_str+="$(source_err "lf_sync.sh" "mew/lib/lf/lf_sync.sh")" # Appending error 
         fi
     fi
 
