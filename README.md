@@ -36,7 +36,7 @@ upcoming features
 ` Automated git push `
 
 
-### Currently supported config files
+### Currently supported backup
 - bash shell
 - fish shell
 - zsh shell
