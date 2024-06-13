@@ -37,25 +37,25 @@ upcoming features
 
 
 ### Currently supported backup
-- bash shell
-- fish shell
-- zsh shell
-- vim
+- bash shell config
+- fish shell config
+- zsh shell config
+- vim config 
 - vscode user settings
-- dnf
-- lf
+- dnf user installed packages
+- lf config 
 
 ### Upcoming support
-- vscode extensions
-- nvim
-- i3
-- sway
-- hyprland
-- tmux
+- vscode installed extensions
+- nvim config
+- i3 config
+- sway 
+- hyprland config
+- tmux config
 - gitconfig
-- apt | pacman | aur | zypper
-- snap
-- flatpak
+- [ apt | pacman | aur | zypper ] (user installed packages)
+- snap (installed packages)
+- flatpak (installed packages)
 
 <h2 id="how_to_install"> How to install </h2> 
 
