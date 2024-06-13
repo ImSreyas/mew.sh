@@ -59,7 +59,9 @@ upcoming features
 
 <h2 id="how_to_install"> How to install </h2> 
 
-Run the installation script (./install.sh)
+### Install mew
+
+Run the installation script (./install.sh) `OR` run the script given below
 
 <div align="center">
   
