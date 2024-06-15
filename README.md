@@ -26,7 +26,7 @@
 
 <h2 id="features"> Features ✨ </h2>
 
-` Backup configuration files `
+` Backup configuration files ` <br>
 ` Sync configaration files `
 
 <details>
@@ -42,10 +42,10 @@
 
 upcoming features
 
-` Take Snapshots of config files `
-` Restore config from backup files ` 
-` Automated git push `
-` Target specifig config files `
+` Take Snapshots of config files ` <br>
+` Restore config from backup files ` <br>
+` Automated git push ` <br>
+` Target specifig config files ` <br>
 
 <details>
 <summary>More Details</summary>
