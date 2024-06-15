@@ -29,11 +29,36 @@
 ` Backup configuration files `
 ` Sync configaration files `
 
+<details>
+<summary>More Details</summary>
+<br>
+  
+| Feature | Description |
+|---|---|
+| Backup configuration files | Take backup of each config and imp files installed in the system |
+| Sync configaration files | Update the files to the latest version by seeing what have been changed since the last version |
+
+</details>
+
 upcoming features
 
 ` Take Snapshots of config files `
 ` Restore config from backup files ` 
 ` Automated git push `
+` Target specifig config files `
+
+<details>
+<summary>More Details</summary>
+<br>
+  
+| Feature | Description |
+|---|---|
+| Take Snapshots of config files | Create multiple instance of a file on different timeline like a git commit |
+| Restore config from backup files | Making use of the backup files |
+| Automated git push | Push the backup to any remote repo by configuring git through mew |
+| Target specifig config files | Targetting only the files we want to backup or update |
+
+</details>
 
 
 ### Currently supported backup
