@@ -19,12 +19,12 @@ function update() {
                 if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
                 
                 case $confirmation in
-                    "y" | "yes" | "Yes" | "Y" | "YES")
+                    "y" | "Y")
                         cp $file_target $output_target 
                         echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
                         break
                         ;;
-                    "n" | "no" | "No" | "N" | "NO" | "")
+                    "n" | "N" | "")
                         echo -e "$(get_color_code "yellow")No changes are made...$(get_color_code "unset")"
                         break
                         ;;
