@@ -20,14 +20,15 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
             highlight_color="cyan"
             question=$(echo $question | sed -e "s/<</\\$(get_color_code $highlight_color)/g" -e "s/>>/\\$(get_color_code "unset")/g") 
             echo
-            echo -ne "$question (y/n/q) : $(get_color_code "unset")"
-            read confirmation 
+            echo -ne "$question (y/n) : $(get_color_code "unset")"
+            read -n 1 confirmation # Read the first character from the terminal
+            if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
             case $confirmation in 
-                "y" | "yes" | "Yes" | "Y" | "YES")
+                "y" | "Y")
                     update 
                     break 
                     ;;
-                "n" | "no" | "No" | "N" | "NO" | "")
+                "n" | "N")
                     echo -e "$(get_color_code "yellow")No changes are made...$(get_color_code "unset")"
                     break
                     ;;

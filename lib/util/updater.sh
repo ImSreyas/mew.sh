@@ -8,22 +8,23 @@ function update() {
     if [[ -f $output_target/$file_name ]]; then 
         if ! cmp -s $output_target/$file_name $file_target; then
             echo 
-            local header_string="Changes ($file_name)"
-            echo $header_string
+            local header_string="$(get_color_code "yellow")Changes$(get_color_code "unset") ($file_name)"
+            echo -e $header_string
             print_symbol_line "-" ${#header_string} 
             diff -c --color=always $output_target/$file_name $file_target
             echo 
             while true; do
                 echo -n "Do you want to update? (y/n): "
-                read confirmation
+                read -n 1 confirmation # Reads only one character from the console
+                if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
                 
                 case $confirmation in
-                    "y" | "yes" | "Yes" | "Y" | "YES")
+                    "y" | "Y")
                         cp $file_target $output_target 
                         echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
                         break
                         ;;
-                    "n" | "no" | "No" | "N" | "NO" | "")
+                    "n" | "N")
                         echo -e "$(get_color_code "yellow")No changes are made...$(get_color_code "unset")"
                         break
                         ;;
