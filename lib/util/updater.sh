@@ -24,11 +24,11 @@ function update() {
                         echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
                         break
                         ;;
-                    "n" | "N" | "")
+                    "n" | "N")
                         echo -e "$(get_color_code "yellow")No changes are made...$(get_color_code "unset")"
                         break
                         ;;
-                    "q" | "Q") 
+                    "q" | "Q" | "") 
                         echo -e "$(get_color_code "green")Completed...$(get_color_code "unset")"
                         footer  
                         exit 0
