@@ -6,9 +6,22 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
     local output_target=${4:-$final_target} # Output target where the file should be copied to
 
     if [[ $file_target != "" && $file_name != "" && -f $file_target ]]; then
+
+        if [[ $5 = "forward" ]]; then
+            if cmp -s $output_target/$file_name $file_target; then
+                return 0
+            else 
+                is_changed=true
+            fi
+        fi
         while true; do 
+            # Adding color code to the question
+            # << for the start & >> for the end (Add these symbols to the question)
+            highlight_color="cyan"
+            question=$(echo $question | sed -e "s/<</\\$(get_color_code $highlight_color)/g" -e "s/>>/\\$(get_color_code "unset")/g") 
             echo
-            read -p "$question (y/n/q) : " confirmation 
+            echo -ne "$question (y/n/q) : $(get_color_code "unset")"
+            read confirmation 
             case $confirmation in 
                 "y" | "yes" | "Yes" | "Y" | "YES")
                     update 
