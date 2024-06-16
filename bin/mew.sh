@@ -45,7 +45,7 @@ function get_color_code() {
 # Printing line with a special character 
 function print_symbol_line() {
     local symbol="${1:-"-"}" 
-    local num_chars=${2:-8}
+    local num_chars=${2:-$(tput cols)}
     local color="${3:-"white"}"
 
     echo -n -e $(get_color_code $color) # Setting color 
@@ -79,12 +79,12 @@ function error_provider() {
 }
 
 function header() {
-    print_symbol_line "#" 8 "magenta"
-    # echo
+    # print_symbol_line "-" "" "magenta"
+    echo
 }
 function footer() {
     echo
-    print_symbol_line "#" 8 "magenta"
+    # print_symbol_line "-" "" "magenta"
 }
 
 function fetch_files() {
