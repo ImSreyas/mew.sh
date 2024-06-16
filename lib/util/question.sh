@@ -15,7 +15,8 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
         while true; do 
             # Adding color code to the question
             # << for the start & >> for the end (Add these symbols to the question)
-            question=$(echo $question | sed -e "s/<</\\$(get_color_code "blue")/g" -e "s/>>/\\$(get_color_code "unset")/g") 
+            highlight_color="cyan"
+            question=$(echo $question | sed -e "s/<</\\$(get_color_code $highlight_color)/g" -e "s/>>/\\$(get_color_code "unset")/g") 
             echo
             echo -ne "$question (y/n/q) : $(get_color_code "unset")"
             read confirmation 
