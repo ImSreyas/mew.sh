@@ -15,7 +15,8 @@ function update() {
             echo 
             while true; do
                 echo -n "Do you want to update? (y/n): "
-                read confirmation
+                read -n 1 confirmation # Reads only one character from the console
+                if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
                 
                 case $confirmation in
                     "y" | "yes" | "Yes" | "Y" | "YES")
