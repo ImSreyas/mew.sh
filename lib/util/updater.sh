@@ -8,8 +8,8 @@ function update() {
     if [[ -f $output_target/$file_name ]]; then 
         if ! cmp -s $output_target/$file_name $file_target; then
             echo 
-            local header_string="Changes ($file_name)"
-            echo $header_string
+            local header_string="$(get_color_code "yellow")Changes$(get_color_code "unset") ($file_name)"
+            echo -e $header_string
             print_symbol_line "-" ${#header_string} 
             diff -c --color=always $output_target/$file_name $file_target
             echo 
