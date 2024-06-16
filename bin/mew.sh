@@ -80,7 +80,8 @@ function error_provider() {
 
 function header() {
     # print_symbol_line "-" "" "magenta"
-    echo
+    # echo
+    return 0
 }
 function footer() {
     echo
@@ -90,6 +91,7 @@ function footer() {
 function fetch_files() {
     
     err_str=""
+    is_changed=false
 
     # Question 
     question_source_path=$lib_target/util/question.sh # Source targets 
@@ -206,6 +208,11 @@ function fetch_files() {
         if [[ "$err_str" != "" ]]; then 
             error_provider "$err_str"
         fi
+    fi
+
+    if [[ $is_changed = false && $1 = "forward" ]]; then
+        echo
+        echo -e "$(get_color_code "green")Everything is up-to-date$(get_color_code "unset")"
     fi
 }
 

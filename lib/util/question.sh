@@ -10,6 +10,8 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
         if [[ $5 = "forward" ]]; then
             if cmp -s $output_target/$file_name $file_target; then
                 return 0
+            else 
+                is_changed=true
             fi
         fi
         while true; do 
@@ -17,7 +19,7 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
             # << for the start & >> for the end (Add these symbols to the question)
             highlight_color="cyan"
             question=$(echo $question | sed -e "s/<</\\$(get_color_code $highlight_color)/g" -e "s/>>/\\$(get_color_code "unset")/g") 
-            # echo
+            echo
             echo -ne "$question (y/n/q) : $(get_color_code "unset")"
             read confirmation 
             case $confirmation in 
