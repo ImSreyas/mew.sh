@@ -157,7 +157,7 @@ function fetch_files() {
         fi
 
         # Alias
-        alias_target=~/.alias # Actual file target
+        alias_target=~/.aliases # Actual file target
         alias_source_path=$lib_target/shell/alias_sync.sh # Source targets 
 
         if [[ -f $alias_target ]]; then  # No need to ask for a backup, if the user don't have .alias file
