@@ -65,6 +65,7 @@ upcoming features
 - bash shell config
 - fish shell config
 - zsh shell config
+- aliases file
 - vim config 
 - vscode user settings
 - dnf user installed packages
