@@ -156,6 +156,18 @@ function fetch_files() {
             fi
         fi
 
+        # Alias
+        alias_target=~/.alias # Actual file target
+        alias_source_path=$lib_target/shell/alias_sync.sh # Source targets 
+
+        if [[ -f $alias_target ]]; then  # No need to ask for a backup, if the user don't have .alias file
+            if [[ -f $alias_source_path ]]; then
+                source $alias_source_path
+                alias_sync $1
+            else err_str+="$(source_err "alias_sync.sh" "mew/lib/shell/alias_sync.sh")" # Appending error 
+            fi
+        fi
+
         # Vim 
         vim_target=~/.vimrc # Actual file target
         vim_source_path=$lib_target/vim/vim_sync.sh # Source targets 
