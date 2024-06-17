@@ -1,9 +1,9 @@
 function bash_sync() {
     # Main call
+    # $1) Filename
+    # $2) File path 
+    # $3) Question 
+    # $4) Output target 
+    # $5) Forwarding first argument of current function ($1) 
     sync_file .bashrc ~/.bashrc "Backup <<bash config>> file?" $final_target/shell $1 # $1) filename $2) file path $3) question $4) output target 
-    # if $val; then 
-    #     echo "Working"
-    # else
-    #     echo "Not working"
-    # fi
 }

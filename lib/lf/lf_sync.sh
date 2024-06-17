@@ -1,4 +1,9 @@
 function lf_sync() {
     # Main call
-    sync_file lfrc ~/.config/lf/lfrc "Backup <<lf config>> file?" $final_target/lf $1 # $1) filename $2) file path $3) question $4) output target 
+    # $1) Filename
+    # $2) File path 
+    # $3) Question 
+    # $4) Output target 
+    # $5) Forwarding first argument of current function ($1) 
+    sync_file lfrc ~/.config/lf/lfrc "Backup <<lf config>> file?" $final_target/lf $1 
 }
