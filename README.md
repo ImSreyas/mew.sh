@@ -28,6 +28,7 @@
 
 ` Backup configuration files ` <br>
 ` Sync configaration files `
+` View files structure `
 
 <details>
 <summary>More Details</summary>
@@ -37,6 +38,7 @@
 |---|---|
 | Backup configuration files | Take backup of each config and imp files installed in the system |
 | Sync configaration files | Update the files to the latest version by seeing what have been changed since the last version |
+| View files structure | View the dotfiles folder structure |
 
 </details>
 
