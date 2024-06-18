@@ -5,6 +5,10 @@ main_lib=./lib
 bin_target=~/.mew/bin/
 name=mew
 
+function hold() {
+    sleep ${1:-.8}
+}
+
 # Giving Executable permission to the mew.sh file 
 if [[ -f "./bin/mew.sh" ]]; then chmod +x ./bin/mew.sh; fi
 # Giving Executable permission to the uninstall.sh file 
@@ -13,7 +17,11 @@ if [[ -f "./uninstall.sh" ]]; then chmod +x ./uninstall.sh; fi
 old_mew_flag=false
 # Creating folder structure for mew
 if [[ -f $main_dir || -d $main_dir ]]; then 
+    echo "Old mew direcotry found"
+    hold
     old_mew_flag=true
+    echo "Removing old mew directory"
+    hold
     rm -rf $main_dir
 fi
 
@@ -25,12 +33,19 @@ if $old_mew_flag; then
 else 
     echo -e "\e[33mInstalling mew...\e[0m"
 fi
+hold 2
 
 # Copying mew binary and library to main directory
+echo "Installing binary executable"
+hold
 cp -rf -p $main_executable $bin_target/$name
+echo "Setting up library"
+hold
 cp -rf -p $main_lib $main_dir
 
 # Setting environment variables for mew 
+echo "Adding environmental variables"
+hold
 export_query='export PATH="$PATH:$HOME/.mew/bin/"' 
 shell_targets=(~/.bashrc ~/.config/fish/config.fish ~/.zshrc ~/.kshrc ~/.tcshrc ~/.cshrc)
 
@@ -46,4 +61,5 @@ for shell_target in ${shell_targets[@]}; do
     fi
 done
 
-echo -e "\e[32mInstalled...\e[0m"
+echo -e "\e[32mMew installed...\e[0m"
+hold 0
