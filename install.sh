@@ -5,7 +5,15 @@ main_lib=./lib
 bin_target=~/.mew/bin/
 name=mew
 
+go_faster=false
+if [[ $1 = "s" ]]; then
+    go_faster=true
+fi
+
 function hold() {
+    if $go_faster; then
+        return 0
+    fi
     sleep ${1:-.8}
 }
 
@@ -33,7 +41,7 @@ if $old_mew_flag; then
 else 
     echo -e "\e[33mInstalling mew...\e[0m"
 fi
-hold 2
+hold 1.5
 
 # Copying mew binary and library to main directory
 echo "Installing binary executable"
