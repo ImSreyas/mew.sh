@@ -68,6 +68,7 @@ upcoming features
 - aliases file
 - i3 config
 - vim config 
+- tmux config
 - vscode user settings
 - dnf user installed packages
 - lf config 
@@ -77,7 +78,6 @@ upcoming features
 - nvim config
 - sway 
 - hyprland config
-- tmux config
 - gitconfig
 - [ apt | pacman | aur | zypper ] (user installed packages)
 - snap (installed packages)
