@@ -189,7 +189,7 @@ function fetch_files() {
         tmux_target=~/.tmux.conf # Actual file target
         tmux_source_path=$lib_target/tmux/tmux_sync.sh # Source targets 
 
-        if [[ -f $tmux_target ]]; then  # No need to ask for a backup, if the user don't have .tmuxrc file
+        if [[ -f $tmux_target ]]; then  # No need to ask for a backup, if the user don't have .tmux.conf file
             if [[ -f $tmux_source_path ]]; then
                 source $tmux_source_path
                 tmux_sync $1
