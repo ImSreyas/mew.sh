@@ -11,8 +11,6 @@ lib_target=~/.mew/lib
 # Dev environment 
 if [[ -d ../lib ]]; then 
     lib_target=../lib
-elif [[ -d ./lib ]]; then
-    lib_target=./lib
 fi
 
 # Creating USERFILES directory if not already exists
@@ -123,11 +121,6 @@ function fetch_files() {
             if [[ -f $bash_source_path ]]; then
                 source $bash_source_path
                 bash_sync $1
-                # if [[ $val -eq 1 ]]; then
-                #     echo "Working"
-                # else 
-                #     echo "Not working"
-                # fi
             else err_str+="$(source_err "bash_sync.sh" "mew/lib/shell/bash_sync.sh")\n" # Appending error 
             fi
         fi
@@ -168,6 +161,18 @@ function fetch_files() {
             fi
         fi
 
+        # i3 
+        i3_target=~/.config/i3/config # Actual file target
+        i3_source_path=$lib_target/i3/i3_sync.sh # Source targets 
+
+        if [[ -f $i3_target ]]; then # No need to ask for a backup, if the user don't have i3config file
+            if [[ -f $i3_source_path ]]; then
+                source $i3_source_path
+                i3_sync $1
+            else err_str+="$(source_err "i3_sync.sh" "mew/lib/i3/i3_sync.sh")\n" # Appending error 
+            fi
+        fi
+
         # Vim 
         vim_target=~/.vimrc # Actual file target
         vim_source_path=$lib_target/vim/vim_sync.sh # Source targets 
@@ -179,7 +184,6 @@ function fetch_files() {
             else err_str+="$(source_err "vim_sync.sh" "mew/lib/vim/vim_sync.sh")" # Appending error 
             fi
         fi
-
 
         # Vscode user settings
         vscode_user_settings_target=~/.config/Code/User/settings.json # Actual file target

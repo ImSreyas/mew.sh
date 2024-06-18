@@ -66,6 +66,7 @@ upcoming features
 - fish shell config
 - zsh shell config
 - aliases file
+- i3 config
 - vim config 
 - vscode user settings
 - dnf user installed packages
@@ -74,7 +75,6 @@ upcoming features
 ### Upcoming support
 - vscode installed extensions
 - nvim config
-- i3 config
 - sway 
 - hyprland config
 - tmux config
