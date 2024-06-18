@@ -27,7 +27,7 @@
 <h2 id="features"> Features ✨ </h2>
 
 ` Backup configuration files ` <br>
-` Sync configaration files `
+` Sync configaration files ` <br>
 ` View files structure `
 
 <details>
