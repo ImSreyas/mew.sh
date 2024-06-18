@@ -28,7 +28,7 @@
 
 ` Backup configuration files ` <br>
 ` Restore config from backup files ` <br>
-` Sync configaration files ` <br>
+` Sync configuration files ` <br>
 ` View files structure `
 
 <details>
@@ -39,7 +39,7 @@
 |---|---|
 | Backup configuration files | Take backup of each config and imp files installed in the system |
 | Restore config from backup files | Making use of the backup files |
-| Sync configaration files | Update the files to the latest version by seeing what have been changed since the last version |
+| Sync configuration files | Update the files to the latest version by seeing what have been changed since the last version |
 | View files structure | View the dotfiles folder structure |
 
 </details>
@@ -48,7 +48,7 @@ upcoming features
 
 ` Take Snapshots of config files ` <br>
 ` Automated git push ` <br>
-` Target specifig config files ` <br>
+` Target specific config files ` <br>
 
 <details>
 <summary>More Details</summary>
@@ -58,7 +58,7 @@ upcoming features
 |---|---|
 | Take Snapshots of config files | Create multiple instance of a file on different timeline like a git commit |
 | Automated git push | Push the backup to any remote repo by configuring git through mew |
-| Target specifig config files | Targetting only the files we want to backup or update |
+| Target specific config files | Targeting only the files we want to backup or update |
 
 </details>
 
