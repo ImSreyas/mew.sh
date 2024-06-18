@@ -76,6 +76,7 @@ upcoming features
 ### Upcoming support
 - vscode installed extensions
 - nvim config
+- alacritty config
 - sway 
 - hyprland config
 - gitconfig
