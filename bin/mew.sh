@@ -240,7 +240,7 @@ function fetch_files() {
 
     if [[ $is_changed = false && $1 = "forward" ]]; then
         echo
-        echo -e "$(get_color_code "green")Everything is up-to-date$(get_color_code "unset")"
+        echo -e "$(get_color_code "green") Everything is up-to-date$(get_color_code "unset")"
     fi
 }
 
@@ -254,7 +254,20 @@ else
         if [[ $# -eq 1 ]]; then
             fetch_files "forward"
         fi
+    elif [[ $1 = "view" ]]; then
+        if [[ $# -eq 1 ]]; then
+            if [[ -d $final_target ]]; then
+                if command -v tree &> /dev/null; then
+                    tree -a -I '.git' -I 'README.md' $final_target
+                else
+                    echo -e "\n Please install 'tree' package for using view"
+                fi
+            else 
+                echo "Dotfiles not found"
+            fi
+        fi
     fi
+
 fi
 
 footer
