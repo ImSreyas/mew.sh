@@ -7,7 +7,7 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
 
     if [[ $file_target != "" && $file_name != "" && -f $file_target ]]; then
 
-        if [[ $5 = "forward" ]]; then
+        if [[ $5 = "push" ]]; then
             if cmp -s $output_target/$file_name $file_target; then
                 return 0
             else 

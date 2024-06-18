@@ -238,7 +238,7 @@ function fetch_files() {
         fi
     fi
 
-    if [[ $is_changed = false && $1 = "forward" ]]; then
+    if [[ $is_changed = false && $1 = "push" ]]; then
         echo
         echo -e "$(get_color_code "green") Everything is up-to-date$(get_color_code "unset")"
     fi
@@ -252,7 +252,11 @@ if [[ $# -eq 0 ]]; then
 else 
     if [[ $1 = "push" ]]; then 
         if [[ $# -eq 1 ]]; then
-            fetch_files "forward"
+            fetch_files "push"
+        fi
+    elif [[ $1 = "pull" ]]; then
+        if [[ $# -eq 1 ]];then 
+            fetch_files "pull"
         fi
     elif [[ $1 = "view" ]]; then
         if [[ $# -eq 1 ]]; then
