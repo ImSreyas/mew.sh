@@ -258,7 +258,7 @@ else
         if [[ $# -eq 1 ]]; then
             if [[ -d $final_target ]]; then
                 if command -v tree &> /dev/null; then
-                    tree -a -I '.git' -I 'README.md' $final_target
+                    tree -a -I '.git' -I 'README.md' -I '.gitignore' $final_target
                 else
                     echo -e "\n Please install 'tree' package for using view"
                 fi
