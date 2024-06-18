@@ -11,8 +11,6 @@ lib_target=~/.mew/lib
 # Dev environment 
 if [[ -d ../lib ]]; then 
     lib_target=../lib
-elif [[ -d ./lib ]]; then
-    lib_target=./lib
 fi
 
 # Creating USERFILES directory if not already exists
