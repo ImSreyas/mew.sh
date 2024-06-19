@@ -7,18 +7,16 @@ function update() {
     fi
     if [[ -f $output_target/$file_name ]]; then 
         if ! cmp -s $output_target/$file_name $file_target; then
-            case $1 in 
-                "push" | "pull" | "")
-                    echo 
-                    local header_string="Changes ($file_name)" # Header string without colors 
-                    local header_len=${#header_string}
-                    local header_string="$(get_color_code "yellow")Changes$(get_color_code "unset") ($file_name)" # Shadowing with a new improved header string with colors
-                    echo -e $header_string
-                    print_symbol_line "-" $header_len
-                    diff -c --color=always $output_target/$file_name $file_target
-                    echo 
-                ;;
-            esac
+            if [[ ! $1 ]]; then 
+                echo 
+                local header_string="Changes ($file_name)" # Header string without colors 
+                local header_len=${#header_string}
+                local header_string="$(get_color_code "yellow")Changes$(get_color_code "unset") ($file_name)" # Shadowing with a new improved header string with colors
+                echo -e $header_string
+                print_symbol_line "-" $header_len
+                diff -c --color=always $output_target/$file_name $file_target
+                echo 
+            fi
 
             while true; do
                 if [[ $1 = "pushx" || $1 = "pullx" ]]; then
