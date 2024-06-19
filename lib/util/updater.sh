@@ -7,23 +7,36 @@ function update() {
     fi
     if [[ -f $output_target/$file_name ]]; then 
         if ! cmp -s $output_target/$file_name $file_target; then
-            echo 
-            local header_string="Changes ($file_name)" # Header string without colors 
-            local header_len=${#header_string}
-            local header_string="$(get_color_code "yellow")Changes$(get_color_code "unset") ($file_name)" # Shadowing with a new improved header string with colors
-            echo -e $header_string
-            print_symbol_line "-" $header_len
-            diff -c --color=always $output_target/$file_name $file_target
-            echo 
+            case $1 in 
+                "push" | "pull")
+                    echo 
+                    local header_string="Changes ($file_name)" # Header string without colors 
+                    local header_len=${#header_string}
+                    local header_string="$(get_color_code "yellow")Changes$(get_color_code "unset") ($file_name)" # Shadowing with a new improved header string with colors
+                    echo -e $header_string
+                    print_symbol_line "-" $header_len
+                    diff -c --color=always $output_target/$file_name $file_target
+                    echo 
+                ;;
+            esac
+
             while true; do
-                echo -n "Do you want to update? (y/n): "
-                read -n 1 confirmation # Reads only one character from the console
-                if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
+                if [[ $1 = "pushx" || $1 = "pullx" ]]; then
+                    confirmation="y"
+                else 
+                    echo -n "Do you want to update? (y/n): "
+                    read -n 1 confirmation # Reads only one character from the console
+                    if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
+                fi
                 
                 case $confirmation in
                     "y" | "Y")
                         cp $file_target $output_target 
-                        echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
+                        if [[ $1 = "pushx" || $1 = "pullx" ]]; then
+                            echo -e "$(get_color_code "yellow")$output_target/$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
+                        else 
+                            echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
+                        fi
                         break
                         ;;
                     "n" | "N")
