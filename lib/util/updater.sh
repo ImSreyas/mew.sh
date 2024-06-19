@@ -8,7 +8,7 @@ function update() {
     if [[ -f $output_target/$file_name ]]; then 
         if ! cmp -s $output_target/$file_name $file_target; then
             case $1 in 
-                "push" | "pull")
+                "push" | "pull" | "")
                     echo 
                     local header_string="Changes ($file_name)" # Header string without colors 
                     local header_len=${#header_string}
