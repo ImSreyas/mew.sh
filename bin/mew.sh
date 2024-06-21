@@ -421,6 +421,8 @@ else
             else 
                 echo "Dotfiles not found"
             fi
+		else 
+		    echo -e "\n usage : mew view"
         fi
     else 
         echo
