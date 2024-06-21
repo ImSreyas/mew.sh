@@ -367,20 +367,28 @@ else
     if [[ $1 = "push" ]]; then 
         if [[ $# -eq 1 ]]; then
             fetch_files "push"
+		else 
+			echo -e "\n usage : mew push"
         fi
     elif [[ $1 = "pushx" ]]; then
         if [[ $# -eq 1 ]];then 
 			echo
             fetch_files "pushx"
+		else 
+			echo -e "\n usage : mew pushx"
         fi
     elif [[ $1 = "pull" ]]; then
         if [[ $# -eq 1 ]];then 
             fetch_files "pull"
+		else 
+			echo -e "\n usage : mew pull"
         fi
     elif [[ $1 = "pullx" ]]; then
         if [[ $# -eq 1 ]];then 
 			echo
             fetch_files "pullx"
+		else
+			echo -e "\n usage : mew pullx"
         fi
 	elif [[ $1 = "remote" ]]; then 
 	    if [[ $# -eq 1 || $# -ge 4 ]];then 
