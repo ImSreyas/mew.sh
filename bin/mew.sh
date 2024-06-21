@@ -323,6 +323,41 @@ function fetch_files() {
     fi
 }
 
+# Function for pushing to the remote repo
+function remote_push() {
+	local push_message=${1:-"Dotfiles updated (from mew)"}
+	if [[ -d "$final_target/.git" ]]; then
+		if command -v git &> /dev/null; then
+			cd $final_target
+			echo 
+			git add .
+			git commit -m "$push_message"
+			git push
+			cd -
+		else
+			echo -e "\n Please install 'git' before continuing"
+		fi
+	else
+		echo -e "\n Dotfiles is not a git directory"
+	fi
+}
+
+# Function for pulling from the remote repo
+function remote_pull() {
+	if [[ -d "$final_target/.git" ]]; then
+		if command -v git &> /dev/null; then
+			cd $final_target
+			echo 
+			git pull
+			cd -
+		else
+			echo -e "\n Please install 'git' before continuing"
+		fi
+	else
+		echo -e "\n Dotfiles is not a git directory"
+	fi
+}
+
 # ? Program starts here 
 header
 
@@ -347,6 +382,26 @@ else
 			echo
             fetch_files "pullx"
         fi
+	elif [[ $1 = "remote" ]]; then 
+	    if [[ $# -eq 1 || $# -ge 4 ]];then 
+			echo -e "\n usage : mew remote <push|pull> <push:message if any>"
+		elif [[ $# -eq 2 ]]; then
+			if [[ $2 = "push" ]]; then
+				remote_push 
+			elif [[ $2 = "pull" ]]; then
+				remote_pull 
+			else
+				echo -e "\n usage : mew remote <push|pull> <push:message if any>"
+			fi
+		elif [[ $# -eq 3 ]]; then
+			if [[ $2 = "push" ]]; then
+				remote_push $3
+			else
+				echo -e "\n usage : mew remote <push|pull> <push:message if any>"
+			fi
+		else
+			echo -e "$(get_color_code "red")Invalid command$(get_color_code "unset") $3 ..."
+		fi
     elif [[ $1 = "view" ]]; then
         if [[ $# -eq 1 ]]; then
             if [[ -d $final_target ]]; then
