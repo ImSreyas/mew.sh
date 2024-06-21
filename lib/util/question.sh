@@ -7,13 +7,25 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
 
     if [[ $file_target != "" && $file_name != "" && -f $file_target ]]; then
 
-        if [[ $5 = "forward" ]]; then
-            if cmp -s $output_target/$file_name $file_target; then
-                return 0
-            else 
-                is_changed=true
-            fi
-        fi
+        case "$5" in
+            "push" | "pull")
+                if cmp -s "$output_target/$file_name" "$file_target"; then
+                    return 0
+                else
+                    is_changed=true
+                fi
+            ;;
+            "pushx" | "pullx")
+                if cmp -s "$output_target/$file_name" "$file_target"; then
+                    return 0
+                else 
+                    update $5
+                    is_changed=true
+                    return 0
+                fi
+            ;;
+        esac
+
         while true; do 
             # Adding color code to the question
             # << for the start & >> for the end (Add these symbols to the question)
