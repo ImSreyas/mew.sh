@@ -140,7 +140,7 @@ sh install.sh
 <br>
 <h2 id="how_to_use">How to use</h2>
 
-Run ` mew ` command in the cli to push all the dotfiles ([see here](currently_supported)) to the Dotfiles folder.
+Run ` mew ` command in the cli to push all the dotfiles ([see here](#currently_supported)) to the Dotfiles folder.
 
 <h3>Commands</h3>
 
