@@ -403,7 +403,7 @@ else
 			fi
 		elif [[ $# -eq 3 ]]; then
 			if [[ $2 = "push" ]]; then
-				remote_push $3
+				remote_push "$3"
 			else
 				echo -e "\n usage : mew remote <push|pull> <push:message if any>"
 			fi
