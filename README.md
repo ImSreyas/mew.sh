@@ -15,8 +15,9 @@
 
 [What is mew](#what_is_mew)<br>
 [Features](#features)<br>
-[How to install](#how_to_install)
-  
+[How to install](#how_to_install)<br>
+[How to use](#how_to_use)
+
 `🚧 New Features Under Development 🚧`
 </div>
 
@@ -63,7 +64,8 @@ upcoming features
 </details>
 
 
-### Currently supported backup
+<h3 id="currently_supported"> Currently supported backup </h3>
+
 - bash shell config
 - fish shell config
 - zsh shell config
@@ -134,3 +136,28 @@ sh install.sh
 ```bash
 ./uninstall.sh
 ```
+
+<br>
+<h2 id="how_to_use">How to use</h2>
+
+Run ` mew ` command in the cli to push all the dotfiles ([see here](currently_supported)) to the Dotfiles folder.
+
+<h3>Commands</h3>
+
+Basic commands <br>
+
+` mew push ` - Push files which are updated and not backed up yet (ask you for confirmation) <br>
+` mew pull ` - Pull files from Dotfiles which are udated or not found (in its original location) to its original location (ask you for confirmation) <br>
+` mew pushx ` - Same as `mew push` But it won't ask you for any confirmation, it will push everything in one go (faster version of push) <br>
+` mew pullx ` - Same as `mew pull` But it won't ask you for any confirmation, it will pull everything in one go (faster version of pull) <br>
+` mew view ` - View the structure of Dotfiles folder (need 'tree' package) <br>
+` mew remote push ` - Push changes in Dotfiles to remote repo (git should be configured in Dotfiles to work) <br>
+  * ` mew remote push 'Commit message' ` - To commit with a commit message
+  * ` mew remote push ` - It will commit with default commit message [which is : "Dotfiles updated (from mew)"]
+
+` mew remote pull ` - Pull from the remote repo to Dotfiles
+
+ 
+
+
+
