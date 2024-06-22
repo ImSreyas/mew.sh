@@ -428,6 +428,7 @@ else
         echo
         echo -e "$(get_color_code "red")Invalid command$(get_color_code "unset") $1 ..."
     fi
+
 fi
 
 footer
