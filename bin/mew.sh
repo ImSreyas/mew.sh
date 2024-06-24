@@ -191,7 +191,6 @@ function fetch_files() {
 
         # Vscode user settings
         vscode_user_settings_target=~/.config/Code/User/settings.json # Actual file target
-
         if [[ -f $vscode_user_settings_target ]]; then  # No need to ask for a backup, if the user don't have settings.json file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file settings.json ~/.config/Code/User/settings.json "Backup <<vscode user settings>> file?" $final_target/vscode $1 
