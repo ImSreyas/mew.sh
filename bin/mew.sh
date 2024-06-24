@@ -342,6 +342,23 @@ function remote_push() {
 	fi
 }
 
+# Function for pulling from the remote repo
+function remote_pull() {
+	if [[ -d "$final_target/.git" ]]; then
+		if command -v git &> /dev/null; then
+			cd $final_target
+			echo 
+			git pull
+			cd -
+		else
+			echo -e "\n Please install 'git' before continuing"
+		fi
+	else
+		echo -e "\n Dotfiles is not a git directory"
+	fi
+}
+
+# Mew help section
 function mew_help() {
     echo -en "\n "
     local header="Basic commands"
@@ -372,22 +389,6 @@ function mew_help() {
         local after_spaces=$(printf "%*s" "$after_spaces_length")
         echo -e "   $cmd$after_spaces${commands[$cmd]}"
     done
-}
-
-# Function for pulling from the remote repo
-function remote_pull() {
-	if [[ -d "$final_target/.git" ]]; then
-		if command -v git &> /dev/null; then
-			cd $final_target
-			echo 
-			git pull
-			cd -
-		else
-			echo -e "\n Please install 'git' before continuing"
-		fi
-	else
-		echo -e "\n Dotfiles is not a git directory"
-	fi
 }
 
 # ? Program starts here 
