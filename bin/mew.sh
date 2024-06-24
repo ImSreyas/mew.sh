@@ -342,6 +342,38 @@ function remote_push() {
 	fi
 }
 
+function mew_help() {
+    echo -en "\n "
+    local header="Basic commands"
+    echo -e $header
+    echo -n " "
+    print_symbol_line "-" ${#header}
+    declare -A commands
+    commands["push"]="Backup files to ~/Dotfiles folder"
+    commands["pull"]="Restore files from ~/Dotfiles to it's original location" 
+    commands["pushx"]="Faster version of push"
+    commands["pullx"]="Faster version of pull"
+    commands["remote"]="Do remote operation using git"
+    commands["view"]="View Dotfiles folder sturcture"
+    commands["help"]="Mew help"
+
+    # Find command with highest length
+    local max_len=0
+    for cmd in ${!commands[@]}; do 
+        if [[ $max_len -lt ${#cmd} ]]; then
+            max_len=${#cmd}
+        fi
+    done
+
+    # Printing each of the command with its description 
+    local keys=("push" "pull" "pushx" "pullx" "remote" "view" "help") # Commands array is not ordered
+    for cmd in ${keys[@]}; do 
+        local after_spaces_length=$(echo "$max_len - ${#cmd} + 4" | bc)
+        local after_spaces=$(printf "%*s" "$after_spaces_length")
+        echo -e "   $cmd$after_spaces${commands[$cmd]}"
+    done
+}
+
 # Function for pulling from the remote repo
 function remote_pull() {
 	if [[ -d "$final_target/.git" ]]; then
@@ -424,6 +456,8 @@ else
 		else 
 		    echo -e "\n usage : mew view"
         fi
+    elif [[ $1 = "help" ]]; then
+        mew_help
     else 
         echo
         echo -e "$(get_color_code "red")Invalid command$(get_color_code "unset") $1 ..."
