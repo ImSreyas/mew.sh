@@ -124,9 +124,9 @@ function fetch_files() {
             # $4) Output target 
             # $5) Forwarding first argument of current function ($1) 
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file .bashrc ~/.bashrc "Backup <<bash config>> file?" $final_target/shell $1 
+                sync_file .bashrc ~/.bashrc "<<bash config>> file?" $final_target/shell $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file .bashrc $final_target/shell/.bashrc "Restore <<bash config>> file?" ~ $1 
+                sync_file .bashrc $final_target/shell/.bashrc "<<bash config>> file?" ~ $1 
             fi
         fi
 
@@ -135,9 +135,9 @@ function fetch_files() {
         fish_target_d=$final_target/shell/config.fish # Dotfile target
         if [[ -f $fish_target || -f $fish_target_d ]]; then  # No need to ask for a backup, if the user don't have config.fish file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file config.fish ~/.config/fish/config.fish "Backup <<fish config>> file?" $final_target/shell $1 
+                sync_file config.fish ~/.config/fish/config.fish "<<fish config>> file?" $final_target/shell $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file config.fish $final_target/shell/config.fish "Restore <<fish config>> file?" ~/.config/fish $1 
+                sync_file config.fish $final_target/shell/config.fish "<<fish config>> file?" ~/.config/fish $1 
             fi
         fi
 
@@ -146,9 +146,9 @@ function fetch_files() {
         zsh_target_d=$final_target/shell/.zshrc # Dotfile target
         if [[ -f $zsh_target || -f $zsh_target_d ]]; then  # No need to ask for a backup, if the user don't have .zshrc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file .zshrc ~/.zshrc "Backup <<zsh config>> file?" $final_target/shell $1
+                sync_file .zshrc ~/.zshrc "<<zsh config>> file?" $final_target/shell $1
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file .zshrc $final_target/shell/.zshrc "Restore <<zsh config>> file?" ~ $1
+                sync_file .zshrc $final_target/shell/.zshrc "<<zsh config>> file?" ~ $1
             fi
         fi
 
@@ -157,9 +157,9 @@ function fetch_files() {
         alias_target_d=$final_target/shell/.aliases # Dotfile target
         if [[ -f $alias_target || -f $alias_target_d ]]; then  # No need to ask for a backup, if the user don't have .alias file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file .aliases ~/.aliases "Backup <<aliases>> file?" $final_target/shell $1 # $1) filename $2) file path $3) question $4) output target 
+                sync_file .aliases ~/.aliases "<<aliases>> file?" $final_target/shell $1 # $1) filename $2) file path $3) question $4) output target 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file .aliases $final_target/shell/.aliases "Restore <<aliases>> file?" ~ $1 # $1) filename $2) file path $3) question $4) output target 
+                sync_file .aliases $final_target/shell/.aliases "<<aliases>> file?" ~ $1 # $1) filename $2) file path $3) question $4) output target 
             fi
         fi
 
@@ -168,9 +168,9 @@ function fetch_files() {
         i3_target_d=$final_target/i3/config # Dotfile target
         if [[ -f $i3_target || -f $i3_target_d ]]; then # No need to ask for a backup, if the user don't have i3config file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file config ~/.config/i3/config "Backup <<i3 config>> file?" $final_target/i3 $1 
+                sync_file config ~/.config/i3/config "<<i3 config>> file?" $final_target/i3 $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file config $final_target/i3/config "Restore <<i3 config>> file?" ~/.config/i3 $1 
+                sync_file config $final_target/i3/config "<<i3 config>> file?" ~/.config/i3 $1 
             fi
         fi
 
@@ -179,9 +179,9 @@ function fetch_files() {
         vim_target_d=$final_target/vim/.vimrc # Dotfile target
         if [[ -f $vim_target || -f $vim_target_d ]]; then  # No need to ask for a backup, if the user don't have .vimrc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file .vimrc ~/.vimrc "Backup <<vim config>> file?" $final_target/vim $1 
+                sync_file .vimrc ~/.vimrc "<<vim config>> file?" $final_target/vim $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file .vimrc $final_target/vim/.vimrc "Restore <<vim config>> file?" ~ $1 
+                sync_file .vimrc $final_target/vim/.vimrc "<<vim config>> file?" ~ $1 
             fi
         fi
 
@@ -190,9 +190,9 @@ function fetch_files() {
         tmux_target_d=$final_target/tmux/.tmux.conf # Dotfile target
         if [[ -f $tmux_target || -f $tmux_target_d ]]; then  # No need to ask for a backup, if the user don't have .tmux.conf file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file .tmux.conf ~/.tmux.conf "Backup <<tmux config>> file?" $final_target/tmux $1 # $1) filename $2) file path $3) question $4) output target 
+                sync_file .tmux.conf ~/.tmux.conf "<<tmux config>> file?" $final_target/tmux $1 # $1) filename $2) file path $3) question $4) output target 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file .tmux.conf $final_target/tmux/.tmux.conf "Restore <<tmux config>> file?" ~ $1 # $1) filename $2) file path $3) question $4) output target 
+                sync_file .tmux.conf $final_target/tmux/.tmux.conf "<<tmux config>> file?" ~ $1 # $1) filename $2) file path $3) question $4) output target 
             fi
         fi
 
@@ -201,9 +201,9 @@ function fetch_files() {
         vscode_user_settings_target_d=$final_target/vscode/settings.json # Dotfile target
         if [[ -f $vscode_user_settings_target || -f $vscode_user_settings_target_d ]]; then  # No need to ask for a backup, if the user don't have settings.json file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file settings.json ~/.config/Code/User/settings.json "Backup <<vscode user settings>> file?" $final_target/vscode $1 
+                sync_file settings.json ~/.config/Code/User/settings.json "<<vscode user settings>> file?" $final_target/vscode $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file settings.json $final_target/vscode/settings.json "Restore <<vscode user settings>> file?" ~/.config/Code/User/ $1 
+                sync_file settings.json $final_target/vscode/settings.json "<<vscode user settings>> file?" ~/.config/Code/User/ $1 
             fi
         fi
 
@@ -212,9 +212,9 @@ function fetch_files() {
         yazi_config_target_d=$final_target/yazi/yazi.toml # Actual file target
         if [[ -f $yazi_config_target || -f $yazi_config_dotfiles_target ]]; then  # No need to ask for a backup, if the user don't have yazi_config file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file yazi.toml ~/.config/yazi/yazi.toml "Backup <<yazi config>> file?" $final_target/yazi $1 
+                sync_file yazi.toml ~/.config/yazi/yazi.toml "<<yazi config>> file?" $final_target/yazi $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file yazi.toml $final_target/yazi/yazi.toml "Restore <<yazi config>> file?" ~/.config/yazi $1 
+                sync_file yazi.toml $final_target/yazi/yazi.toml "<<yazi config>> file?" ~/.config/yazi $1 
             fi
         fi
 
@@ -223,9 +223,9 @@ function fetch_files() {
         yazi_keymap_target_d=$final_target/yazi/keymap.toml # Dotfile target
         if [[ -f $yazi_keymap_target || -f $yazi_keymap_target_d ]]; then  # No need to ask for a backup, if the user don't have yazi_keymap file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file keymap.toml ~/.config/yazi/keymap.toml "Backup <<yazi keymap>> file?" $final_target/yazi $1 
+                sync_file keymap.toml ~/.config/yazi/keymap.toml "<<yazi keymap>> file?" $final_target/yazi $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file keymap.toml $final_target/yazi/keymap.toml "Restore <<yazi keymap>> file?" ~/.config/yazi $1 
+                sync_file keymap.toml $final_target/yazi/keymap.toml "<<yazi keymap>> file?" ~/.config/yazi $1 
             fi
         fi
 
@@ -234,9 +234,9 @@ function fetch_files() {
         yazi_theme_target_d=$final_target/yazi/theme.toml # Dotfile target
         if [[ -f $yazi_theme_target || -f $yazi_theme_target_d ]]; then  # No need to ask for a backup, if the user don't have yazi_themerc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file theme.toml ~/.config/yazi/theme.toml "Backup <<yazi theme>> file?" $final_target/yazi $1 
+                sync_file theme.toml ~/.config/yazi/theme.toml "<<yazi theme>> file?" $final_target/yazi $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file theme.toml $final_target/yazi/theme.toml "Restore <<yazi theme>> file?" ~/.config/yazi $1 
+                sync_file theme.toml $final_target/yazi/theme.toml "<<yazi theme>> file?" ~/.config/yazi $1 
             fi
         fi
 
@@ -245,9 +245,9 @@ function fetch_files() {
         lf_target_d=$final_target/lf/lfrc # Dotfile target
         if [[ -f $lf_target || -f $lf_target_d ]]; then  # No need to ask for a backup, if the user don't have lfrc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file lfrc ~/.config/lf/lfrc "Backup <<lf config>> file?" $final_target/lf $1 
+                sync_file lfrc ~/.config/lf/lfrc "<<lf config>> file?" $final_target/lf $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file lfrc $final_target/lf/lfrc "Restore <<lf config>> file?" ~/.config/lf $1 
+                sync_file lfrc $final_target/lf/lfrc "<<lf config>> file?" ~/.config/lf $1 
             fi
         fi
 
@@ -259,7 +259,7 @@ function fetch_files() {
                 local temp_file_name=packages.txt
                 local temp_file_path=$temp_dir/$temp_file_name
                 dnf history userinstalled | tail -n +2 > $temp_file_path
-                sync_file $temp_file_name $temp_file_path "Backup <<dnf user-installed packages>> file?" $final_target/dnf $1 
+                sync_file $temp_file_name $temp_file_path "<<dnf user-installed packages>> file?" $final_target/dnf $1 
                 rm -rf $temp_dir 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
                 local dnf_installed_packages="$final_target/dnf/packages.txt"
