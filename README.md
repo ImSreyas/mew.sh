@@ -6,19 +6,18 @@
 <div align="center">✨ A File Backup & Syncing command line tool for backing up dotfiles. 🐧 
   <br> 
   
-  `# dotfiles maker` 
+  `# dotfiles maker` <br>
 </div>
 
 <div align="center">
 
-<h3>Contents</h3>
+<h2>Contents</h2>
 
 [What is mew](#what_is_mew)<br>
 [Features](#features)<br>
 [How to install](#how_to_install)<br>
 [How to use](#how_to_use)
 
-`🚧 New Features Under Development 🚧`
 </div>
 
 <h2 id="what_is_mew">What is mew</h2>
