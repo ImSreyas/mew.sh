@@ -1,6 +1,6 @@
 <h1 align="center">
   <div>
-    <img width="100%" src="https://github.com/ImSreyas/mew/blob/assets/logo/mew.png" />
+    <img width="100%" src="https://github.com/ImSreyas/mew/blob/assets/logo/logo.png" />
   </div>
 </h1>
 <div align="center">✨ A File Backup & Syncing command line tool for backing up dotfiles. 🐧 
