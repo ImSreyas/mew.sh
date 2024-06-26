@@ -16,7 +16,8 @@
 [What is mew](#what_is_mew)<br>
 [Features](#features)<br>
 [How to install](#how_to_install)<br>
-[How to use](#how_to_use)
+[How to use](#how_to_use)<br>
+[Preview](#preview)
 
 </div>
 
@@ -156,7 +157,24 @@ Basic commands <br>
 
 ` mew remote pull ` - Pull from the remote repo to Dotfiles
 
- 
+<h2 id="preview">Preview</h2>
 
+- push
+<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/push.png" />
+
+- pull
+<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/pull.png" />
+
+- pushx
+<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/pushx.png" />
+
+- pullx
+<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/pullx.png" />
+
+- show
+<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/show.png" />
+
+- help
+<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/help.png" />
 
 
