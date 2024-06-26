@@ -115,7 +115,8 @@ function fetch_files() {
 
         # Bash 
         bash_target=~/.bashrc # Actual file target
-        if [[ -f $bash_target ]]; then # No need to ask for a backup, if the user don't have .bashrc file
+        bash_target_d=$final_target/shell/.bashrc # Dotfile target
+        if [[ -f $bash_target || -f $bash_target_d ]]; then # No need to ask for a backup, if the user don't have .bashrc file
             # Main call
             # $1) Filename
             # $2) File path 
@@ -131,7 +132,8 @@ function fetch_files() {
 
         # Fish
         fish_target=~/.config/fish/config.fish # Actual file target
-        if [[ -f $fish_target ]]; then  # No need to ask for a backup, if the user don't have config.fish file
+        fish_target_d=$final_target/shell/config.fish # Dotfile target
+        if [[ -f $fish_target || -f $fish_target_d ]]; then  # No need to ask for a backup, if the user don't have config.fish file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file config.fish ~/.config/fish/config.fish "Backup <<fish config>> file?" $final_target/shell $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -141,7 +143,8 @@ function fetch_files() {
 
         # Zsh
         zsh_target=~/.zshrc # Actual file target
-        if [[ -f $zsh_target ]]; then  # No need to ask for a backup, if the user don't have .zshrc file
+        zsh_target_d=$final_target/shell/.zshrc # Dotfile target
+        if [[ -f $zsh_target || -f $zsh_target_d ]]; then  # No need to ask for a backup, if the user don't have .zshrc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file .zshrc ~/.zshrc "Backup <<zsh config>> file?" $final_target/shell $1
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -151,7 +154,8 @@ function fetch_files() {
 
         # Alias
         alias_target=~/.aliases # Actual file target
-        if [[ -f $alias_target ]]; then  # No need to ask for a backup, if the user don't have .alias file
+        alias_target_d=$final_target/shell/.aliases # Dotfile target
+        if [[ -f $alias_target || -f $alias_target_d ]]; then  # No need to ask for a backup, if the user don't have .alias file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file .aliases ~/.aliases "Backup <<aliases>> file?" $final_target/shell $1 # $1) filename $2) file path $3) question $4) output target 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -161,7 +165,8 @@ function fetch_files() {
 
         # i3 
         i3_target=~/.config/i3/config # Actual file target
-        if [[ -f $i3_target ]]; then # No need to ask for a backup, if the user don't have i3config file
+        i3_target_d=$final_target/i3/config # Dotfile target
+        if [[ -f $i3_target || -f $i3_target_d ]]; then # No need to ask for a backup, if the user don't have i3config file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file config ~/.config/i3/config "Backup <<i3 config>> file?" $final_target/i3 $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -171,7 +176,8 @@ function fetch_files() {
 
         # Vim 
         vim_target=~/.vimrc # Actual file target
-        if [[ -f $vim_target ]]; then  # No need to ask for a backup, if the user don't have .vimrc file
+        vim_target_d=$final_target/vim/.vimrc # Dotfile target
+        if [[ -f $vim_target || -f $vim_target_d ]]; then  # No need to ask for a backup, if the user don't have .vimrc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file .vimrc ~/.vimrc "Backup <<vim config>> file?" $final_target/vim $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -181,7 +187,8 @@ function fetch_files() {
 
         # Tmux 
         tmux_target=~/.tmux.conf # Actual file target
-        if [[ -f $tmux_target ]]; then  # No need to ask for a backup, if the user don't have .tmux.conf file
+        tmux_target_d=$final_target/tmux/.tmux.conf # Dotfile target
+        if [[ -f $tmux_target || -f $tmux_target_d ]]; then  # No need to ask for a backup, if the user don't have .tmux.conf file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file .tmux.conf ~/.tmux.conf "Backup <<tmux config>> file?" $final_target/tmux $1 # $1) filename $2) file path $3) question $4) output target 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -191,7 +198,8 @@ function fetch_files() {
 
         # Vscode user settings
         vscode_user_settings_target=~/.config/Code/User/settings.json # Actual file target
-        if [[ -f $vscode_user_settings_target ]]; then  # No need to ask for a backup, if the user don't have settings.json file
+        vscode_user_settings_target_d=$final_target/vscode/settings.json # Dotfile target
+        if [[ -f $vscode_user_settings_target || -f $vscode_user_settings_target_d ]]; then  # No need to ask for a backup, if the user don't have settings.json file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file settings.json ~/.config/Code/User/settings.json "Backup <<vscode user settings>> file?" $final_target/vscode $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -201,7 +209,8 @@ function fetch_files() {
 
         # Yazi config file 
         yazi_config_target=~/.config/yazi/yazi.toml # Actual file target
-        if [[ -f $yazi_config_target ]]; then  # No need to ask for a backup, if the user don't have yazi_configrc file
+        yazi_config_target_d=$final_target/yazi/yazi.toml # Actual file target
+        if [[ -f $yazi_config_target || -f $yazi_config_dotfiles_target ]]; then  # No need to ask for a backup, if the user don't have yazi_config file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file yazi.toml ~/.config/yazi/yazi.toml "Backup <<yazi config>> file?" $final_target/yazi $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -211,7 +220,8 @@ function fetch_files() {
 
         # Yazi keymap file 
         yazi_keymap_target=~/.config/yazi/keymap.toml # Actual file target
-        if [[ -f $yazi_keymap_target ]]; then  # No need to ask for a backup, if the user don't have yazi_keymaprc file
+        yazi_keymap_target_d=$final_target/yazi/keymap.toml # Dotfile target
+        if [[ -f $yazi_keymap_target || -f $yazi_keymap_target_d ]]; then  # No need to ask for a backup, if the user don't have yazi_keymap file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file keymap.toml ~/.config/yazi/keymap.toml "Backup <<yazi keymap>> file?" $final_target/yazi $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -221,7 +231,8 @@ function fetch_files() {
 
         # Yazi theme file 
         yazi_theme_target=~/.config/yazi/theme.toml # Actual file target
-        if [[ -f $yazi_theme_target ]]; then  # No need to ask for a backup, if the user don't have yazi_themerc file
+        yazi_theme_target_d=$final_target/yazi/theme.toml # Dotfile target
+        if [[ -f $yazi_theme_target || -f $yazi_theme_target_d ]]; then  # No need to ask for a backup, if the user don't have yazi_themerc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file theme.toml ~/.config/yazi/theme.toml "Backup <<yazi theme>> file?" $final_target/yazi $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -231,7 +242,8 @@ function fetch_files() {
 
         # Lf 
         lf_target=~/.config/lf/lfrc # Actual file target
-        if [[ -f $lf_target ]]; then  # No need to ask for a backup, if the user don't have lfrc file
+        lf_target_d=$final_target/lf/lfrc # Dotfile target
+        if [[ -f $lf_target || -f $lf_target_d ]]; then  # No need to ask for a backup, if the user don't have lfrc file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file lfrc ~/.config/lf/lfrc "Backup <<lf config>> file?" $final_target/lf $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
