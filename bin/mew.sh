@@ -191,12 +191,41 @@ function fetch_files() {
 
         # Vscode user settings
         vscode_user_settings_target=~/.config/Code/User/settings.json # Actual file target
-
         if [[ -f $vscode_user_settings_target ]]; then  # No need to ask for a backup, if the user don't have settings.json file
             if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
                 sync_file settings.json ~/.config/Code/User/settings.json "Backup <<vscode user settings>> file?" $final_target/vscode $1 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
                 sync_file settings.json $final_target/vscode/settings.json "Restore <<vscode user settings>> file?" ~/.config/Code/User/ $1 
+            fi
+        fi
+
+        # Yazi config file 
+        yazi_config_target=~/.config/yazi/yazi.toml # Actual file target
+        if [[ -f $yazi_config_target ]]; then  # No need to ask for a backup, if the user don't have yazi_configrc file
+            if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
+                sync_file yazi.toml ~/.config/yazi/yazi.toml "Backup <<yazi config>> file?" $final_target/yazi $1 
+            elif [[ $1 = "pull" || $1 = "pullx" ]]; then
+                sync_file yazi.toml $final_target/yazi/yazi.toml "Restore <<yazi config>> file?" ~/.config/yazi $1 
+            fi
+        fi
+
+        # Yazi keymap file 
+        yazi_keymap_target=~/.config/yazi/keymap.toml # Actual file target
+        if [[ -f $yazi_keymap_target ]]; then  # No need to ask for a backup, if the user don't have yazi_keymaprc file
+            if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
+                sync_file keymap.toml ~/.config/yazi/keymap.toml "Backup <<yazi keymap>> file?" $final_target/yazi $1 
+            elif [[ $1 = "pull" || $1 = "pullx" ]]; then
+                sync_file keymap.toml $final_target/yazi/keymap.toml "Restore <<yazi keymap>> file?" ~/.config/yazi $1 
+            fi
+        fi
+
+        # Yazi theme file 
+        yazi_theme_target=~/.config/yazi/theme.toml # Actual file target
+        if [[ -f $yazi_theme_target ]]; then  # No need to ask for a backup, if the user don't have yazi_themerc file
+            if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
+                sync_file theme.toml ~/.config/yazi/theme.toml "Backup <<yazi theme>> file?" $final_target/yazi $1 
+            elif [[ $1 = "pull" || $1 = "pullx" ]]; then
+                sync_file theme.toml $final_target/yazi/theme.toml "Restore <<yazi theme>> file?" ~/.config/yazi $1 
             fi
         fi
 
@@ -358,6 +387,39 @@ function remote_pull() {
 	fi
 }
 
+# Mew help section
+function mew_help() {
+    echo -en "\n "
+    local header="Basic commands"
+    echo -e $header
+    echo -n " "
+    print_symbol_line "-" ${#header}
+    declare -A commands
+    commands["push"]="Backup files to ~/Dotfiles folder"
+    commands["pull"]="Restore files from ~/Dotfiles to it's original location" 
+    commands["pushx"]="Faster version of push"
+    commands["pullx"]="Faster version of pull"
+    commands["remote"]="Do remote operation using git"
+    commands["view"]="View Dotfiles folder sturcture"
+    commands["help"]="Mew help"
+
+    # Find command with highest length
+    local max_len=0
+    for cmd in ${!commands[@]}; do 
+        if [[ $max_len -lt ${#cmd} ]]; then
+            max_len=${#cmd}
+        fi
+    done
+
+    # Printing each of the command with its description 
+    local keys=("push" "pull" "pushx" "pullx" "remote" "view" "help") # Commands array is not ordered
+    for cmd in ${keys[@]}; do 
+        local after_spaces_length=$(echo "$max_len - ${#cmd} + 4" | bc)
+        local after_spaces=$(printf "%*s" "$after_spaces_length")
+        echo -e "   $cmd$after_spaces${commands[$cmd]}"
+    done
+}
+
 # ? Program starts here 
 header
 
@@ -424,6 +486,8 @@ else
 		else 
 		    echo -e "\n usage : mew view"
         fi
+    elif [[ $1 = "help" ]]; then
+        mew_help
     else 
         echo
         echo -e "$(get_color_code "red")Invalid command$(get_color_code "unset") $1 ..."
