@@ -412,7 +412,7 @@ function mew_help() {
     commands["pushx"]="Faster version of push"
     commands["pullx"]="Faster version of pull"
     commands["remote"]="Do remote operation using git"
-    commands["view"]="View Dotfiles folder sturcture"
+    commands["show"]="Show Dotfiles folder sturcture"
     commands["help"]="Mew help"
 
     # Find command with highest length
@@ -424,7 +424,7 @@ function mew_help() {
     done
 
     # Printing each of the command with its description 
-    local keys=("push" "pull" "pushx" "pullx" "remote" "view" "help") # Commands array is not ordered
+    local keys=("push" "pull" "pushx" "pullx" "remote" "show" "help") # Commands array is not ordered
     for cmd in ${keys[@]}; do 
         local after_spaces_length=$(echo "$max_len - ${#cmd} + 4" | bc)
         local after_spaces=$(printf "%*s" "$after_spaces_length")
@@ -484,19 +484,19 @@ else
 		else
 			echo -e "$(get_color_code "red")Invalid command$(get_color_code "unset") $3 ..."
 		fi
-    elif [[ $1 = "view" ]]; then
+    elif [[ $1 = "show" ]]; then
         if [[ $# -eq 1 ]]; then
             if [[ -d $final_target ]]; then
                 if command -v tree &> /dev/null; then
                     tree -a -I '.git' -I 'README.md' -I '.gitignore' $final_target
                 else
-                    echo -e "\n Please install 'tree' package for using view"
+                    echo -e "\n Please install 'tree' package for using show"
                 fi
             else 
                 echo "Dotfiles not found"
             fi
 		else 
-		    echo -e "\n usage : mew view"
+		    echo -e "\n usage : mew show"
         fi
     elif [[ $1 = "help" ]]; then
         mew_help
