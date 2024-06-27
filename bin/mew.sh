@@ -240,39 +240,6 @@ function fetch_files() {
             fi
         fi
 
-        # Yazi config file 
-        yazi_config_target=~/.config/yazi/yazi.toml # Actual file target
-        yazi_config_target_d=$final_target/yazi/yazi.toml # Actual file target
-        if [[ -f $yazi_config_target || -f $yazi_config_dotfiles_target ]]; then  # No need to ask for a backup, if the user don't have yazi_config file
-            if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file yazi.toml ~/.config/yazi/yazi.toml "Backup <<yazi config>> file?" $final_target/yazi $1 
-            elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file yazi.toml $final_target/yazi/yazi.toml "Restore <<yazi config>> file?" ~/.config/yazi $1 
-            fi
-        fi
-
-        # Yazi keymap file 
-        yazi_keymap_target=~/.config/yazi/keymap.toml # Actual file target
-        yazi_keymap_target_d=$final_target/yazi/keymap.toml # Dotfile target
-        if [[ -f $yazi_keymap_target || -f $yazi_keymap_target_d ]]; then  # No need to ask for a backup, if the user don't have yazi_keymap file
-            if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file keymap.toml ~/.config/yazi/keymap.toml "Backup <<yazi keymap>> file?" $final_target/yazi $1 
-            elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file keymap.toml $final_target/yazi/keymap.toml "Restore <<yazi keymap>> file?" ~/.config/yazi $1 
-            fi
-        fi
-
-        # Yazi theme file 
-        yazi_theme_target=~/.config/yazi/theme.toml # Actual file target
-        yazi_theme_target_d=$final_target/yazi/theme.toml # Dotfile target
-        if [[ -f $yazi_theme_target || -f $yazi_theme_target_d ]]; then  # No need to ask for a backup, if the user don't have yazi_themerc file
-            if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
-                sync_file theme.toml ~/.config/yazi/theme.toml "Backup <<yazi theme>> file?" $final_target/yazi $1 
-            elif [[ $1 = "pull" || $1 = "pullx" ]]; then
-                sync_file theme.toml $final_target/yazi/theme.toml "Restore <<yazi theme>> file?" ~/.config/yazi $1 
-            fi
-        fi
-
         # Lf 
         lf_target=~/.config/lf/lfrc # Actual file target
         lf_target_d=$final_target/lf/lfrc # Dotfile target
