@@ -1,6 +1,6 @@
 # Global variables 
 main_dir=~/.mew 
-main_executable=./bin/mew.sh
+main_executable=./bin/mew
 main_lib=./lib
 bin_target=~/.mew/bin/
 name=mew
@@ -14,7 +14,7 @@ function hold() {
     if $go_faster; then
         return 0
     fi
-    sleep ${1:-.8}
+    sleep ${1:-.2}
 }
 
 # Giving Executable permission to the mew.sh file 
@@ -41,12 +41,16 @@ if $old_mew_flag; then
 else 
     echo -e "\e[33mInstalling mew...\e[0m"
 fi
-hold 1.5
+hold 1
 
+if command -v shc > /dev/null 2>&1; then
+    shc -f ./bin/mew.sh -o ./bin/mew 
+    mv ./bin/mew.sh.x.c ./bin/mew.c
+fi
 # Copying mew binary and library to main directory
 echo "Installing binary executable"
 hold
-cp -rf -p $main_executable $bin_target/$name
+cp -rf -p $main_executable $bin_target
 echo "Setting up library"
 hold
 cp -rf -p $main_lib $main_dir

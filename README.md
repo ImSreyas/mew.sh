@@ -157,7 +157,7 @@ Basic commands <br>
 
 ` mew remote pull ` - Pull from the remote repo to Dotfiles
 
-<h2 id="preview">Preview</h2>
+<h2 id="preview">Preview 📸</h2>
 
 - push
 <img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/push.png" />
