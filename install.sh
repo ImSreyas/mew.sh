@@ -1,6 +1,6 @@
 # Global variables 
 main_dir=~/.mew 
-main_executable=./bin/mew.sh
+main_executable=./bin/mew
 main_lib=./lib
 bin_target=~/.mew/bin/
 name=mew
@@ -46,7 +46,7 @@ hold 1.5
 # Copying mew binary and library to main directory
 echo "Installing binary executable"
 hold
-cp -rf -p $main_executable $bin_target/$name
+cp -rf -p $main_executable $bin_target
 echo "Setting up library"
 hold
 cp -rf -p $main_lib $main_dir
