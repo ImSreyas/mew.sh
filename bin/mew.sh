@@ -357,9 +357,9 @@ function fetch_files() {
 								echo -e "$(get_color_code "red")Invalid option...$(get_color_code "unset")"
 								;;
 						esac
-						rm -rf $temp_dir 
 					fi					
                 fi
+				rm -rf $temp_dir 
             fi
         fi
 
