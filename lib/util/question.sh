@@ -53,7 +53,7 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
                     break
                     ;;
                 "q" | "Q") 
-                    echo -e "$(get_color_code "green")Completed...$(get_color_code "unset")"
+                    echo -e "$(get_color_code "green")Exiting...$(get_color_code "unset")"
                     footer  
                     exit 0
                     ;;

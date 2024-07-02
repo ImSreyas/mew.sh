@@ -377,7 +377,7 @@ function fetch_files() {
 
 # Function for pushing to the remote repo
 function remote_push() {
-	local push_message=${1:-"Dotfiles updated (from mew)"}
+	local push_message=${1:-"Dotfiles updated (by mew)"}
 	if [[ -d "$final_target/.git" ]]; then
 		if command -v git &> /dev/null; then
 			cd $final_target
