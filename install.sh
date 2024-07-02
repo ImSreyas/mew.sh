@@ -44,7 +44,7 @@ fi
 hold 1
 
 if command -v shc > /dev/null 2>&1; then
-    shc -f ./bin/mew.sh -o ./bin/mew 
+    shc -f ./bin/mew.sh -o ./bin/mew
     mv ./bin/mew.sh.x.c ./bin/mew.c
 fi
 # Copying mew binary and library to main directory
