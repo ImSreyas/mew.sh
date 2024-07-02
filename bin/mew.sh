@@ -185,6 +185,17 @@ function fetch_files() {
             fi
         fi
 
+        # Kitty 
+        kitty_target=~/.config/kitty/kitty.conf # Actual file target
+        kitty_target_d=$final_target/kitty/kitty.conf # Dotfile target
+        if [[ -f $kitty_target || -f $kitty_target_d ]]; then  # No need to ask for a backup, if the user don't have kitty.conf file
+            if [[ $1 = "push" || $1 = "" || $1 = "pushx" ]]; then
+                sync_file kitty.conf $kitty_target "<<kitty config>> file?" $final_target/kitty $1 
+            elif [[ $1 = "pull" || $1 = "pullx" ]]; then
+                sync_file kitty.conf $kitty_target_d "<<kitty config>> file?" ~/.config/kitty $1 
+            fi
+        fi
+
         # Tmux 
         tmux_target=~/.tmux.conf # Actual file target
         tmux_target_d=$final_target/tmux/.tmux.conf # Dotfile target
