@@ -23,7 +23,7 @@
 
 <h2 id="what_is_mew">What is mew</h2>
 
-`mew` is a command line tool, that will help you take backup of different config files (dotfiles) and store it in the ~/dotfiles folder. Then you can push the folder to github (or any remote repo manager) for safe keeping the files. `mew` will help you avoid the manual copy paste of the config files.
+`mew` is a command line tool, that will help you take backup of different config files (dotfiles) and store it in the ~/dotfiles folder. Then you can push the folder to github (or any remote repo manager) for safe keeping the files. `mew` will help you avoid the manual copy paste of the config files in an interactive way. See in action [here](#preview)
 
 <h2 id="features"> Features ✨ </h2>
 
