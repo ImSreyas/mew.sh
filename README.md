@@ -82,7 +82,7 @@ upcoming features
 - [x] lf config
 - [ ] vscode installed extensions
 - [ ] nvim config
-- [ ] lacritty config
+- [ ] alacritty config
 - [ ] sway 
 - [ ] hyprland config
 - [ ] gitconfig
