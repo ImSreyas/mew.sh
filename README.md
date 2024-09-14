@@ -103,13 +103,9 @@ Run the installation script (./install.sh) `OR` run the script given below
 </div>
 
 ```bash
-git clone https://github.com/ImSreyas/mew.git && cd mew && sh install.sh
-```
-  ` OR `
-```bash
 git clone https://github.com/ImSreyas/mew.git
 cd mew
-sh install.sh
+./install.sh
 ```
 
 <div align="center">
@@ -118,10 +114,6 @@ sh install.sh
   
 </div>
 
-```bash
-curl -L -o mew.zip https://github.com/ImSreyas/mew/archive/refs/heads/main.zip && unzip mew.zip && cd mew-main && sh install.sh
-```
-  ` OR `
 ```bash
 curl -L -o mew.zip https://github.com/ImSreyas/mew/archive/refs/heads/main.zip
 unzip mew.zip
