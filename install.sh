@@ -1,14 +1,22 @@
 # Global variables 
 main_dir=~/.mew 
-main_executable=./bin/mew
+main_executable=./bin/mew.sh
+main_executable_c=./bin/mew
 main_lib=./lib
 bin_target=~/.mew/bin/
 name=mew
 
 go_faster=false
-if [[ $1 = "s" ]]; then
-    go_faster=true
-fi
+c_install=false
+
+for i in "$@"; do
+    if [[ $i = "--fast" ]]; then
+        go_faster=true
+    elif [[ $i = "--c" ]]; then
+        c_install=true
+    fi
+done
+ 
 
 function hold() {
     if $go_faster; then
@@ -25,7 +33,7 @@ if [[ -f "./uninstall.sh" ]]; then chmod +x ./uninstall.sh; fi
 old_mew_flag=false
 # Creating folder structure for mew
 if [[ -f $main_dir || -d $main_dir ]]; then 
-    echo "Old mew direcotry found"
+    echo "Old mew directory found"
     hold
     old_mew_flag=true
     echo "Removing old mew directory"
@@ -43,14 +51,25 @@ else
 fi
 hold 1
 
-if command -v shc > /dev/null 2>&1; then
-    shc -f ./bin/mew.sh -o ./bin/mew
-    mv ./bin/mew.sh.x.c ./bin/mew.c
+if $c_install; then 
+    if command -v shc > /dev/null 2>&1; then
+        shc -f ./bin/mew.sh -o ./bin/mew
+        mv ./bin/mew.sh.x.c ./bin/mew.c
+    else 
+        echo "Please install 'csh' before continuing"
+        exit
+    fi
 fi
 # Copying mew binary and library to main directory
-echo "Installing binary executable"
+echo "Setting up Mew..."
 hold
-cp -rf -p $main_executable $bin_target
+if $c_install; then
+    cp -rf -p $main_executable_c $bin_target
+    echo "Setting up c binary..."
+else 
+    cp -rf -p $main_executable $bin_target/$name
+    echo "Setting up script..."
+fi
 echo "Setting up library"
 hold
 cp -rf -p $main_lib $main_dir
