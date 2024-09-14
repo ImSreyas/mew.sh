@@ -69,28 +69,26 @@ upcoming features
 
 <h3 id="currently_supported"> Currently supported backup </h3>
 
-- bash shell config
-- fish shell config
-- zsh shell config
-- aliases file
-- i3 config
-- vim config 
-- kitty config
-- tmux config
-- vscode user settings
-- dnf user installed packages
-- lf config 
-
-### Upcoming support
-- vscode installed extensions
-- nvim config
-- alacritty config
-- sway 
-- hyprland config
-- gitconfig
-- [ apt | pacman | aur | zypper ] (user installed packages)
-- snap (installed packages)
-- flatpak (installed packages)
+- [x] bash shell config
+- [x] fish shell config
+- [x] zsh shell config
+- [x] aliases file
+- [x] i3 config
+- [x] vim config 
+- [x] kitty config
+- [x] tmux config
+- [x] vscode user settings
+- [x] dnf user installed packages
+- [x] lf config
+- [ ] vscode installed extensions
+- [ ] nvim config
+- [ ] alacritty config
+- [ ] sway 
+- [ ] hyprland config
+- [ ] gitconfig
+- [ ] [ apt | pacman | aur | zypper ] (user installed packages)
+- [ ] snap (installed packages)
+- [ ] flatpak (installed packages)
 
 <h2 id="how_to_install"> How to install </h2> 
 
