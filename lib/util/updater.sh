@@ -7,7 +7,7 @@ function update() {
     fi
     if [[ -f $output_target/$file_name ]]; then 
         if ! cmp -s $output_target/$file_name $file_target; then
-            if [[ ! $1 ]]; then 
+            if [[ $1 = "push" || $1 = "pull" ]]; then 
                 echo 
                 local header_string="Changes ($file_name)" # Header string without colors 
                 local header_len=${#header_string}
@@ -22,7 +22,11 @@ function update() {
                 if [[ $1 = "pushx" || $1 = "pullx" ]]; then
                     confirmation="y"
                 else 
-                    echo -n "Do you want to update? (y/n): "
+                    if [[ $1 = "push" ]]; then 
+                        echo -n "Do you want to update? (y/n): "
+                    else 
+                        echo -n "Do you want to revert? (y/n): "
+                    fi
                     read -n 1 confirmation # Reads only one character from the console
                     if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
                 fi
@@ -30,10 +34,14 @@ function update() {
                 case $confirmation in
                     "y" | "Y")
                         cp $file_target $output_target 
-                        if [[ $1 = "pushx" || $1 = "pullx" ]]; then
-                            echo -e "$(get_color_code "yellow")$output_target/$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
-                        else 
+                        if [[ $1 = "push" ]]; then
                             echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
+                        elif [[ $1 = "pushx" ]]; then
+                            echo -e "$(get_color_code "yellow")$output_target/$file_name$(get_color_code "green") updated...$(get_color_code "unset")"
+                        elif [[ $1 = "pull" ]]; then
+                            echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") reverted...$(get_color_code "unset")"
+                        elif [[ $1 = "pullx" ]]; then
+                            echo -e "$(get_color_code "yellow")$output_target/$file_name$(get_color_code "green") reverted...$(get_color_code "unset")"
                         fi
                         break
                         ;;
@@ -56,6 +64,10 @@ function update() {
         fi
     else 
         cp $file_target $output_target 
-        echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") backup created at $(get_color_code "yellow")$output_target$(get_color_code "unset")"
+        if [[ $1 = "push" || $1 = "pushx" ]]; then
+            echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") backup added to $(get_color_code "yellow")$output_target$(get_color_code "unset")"
+        else
+            echo -e "$(get_color_code "yellow")$file_name$(get_color_code "green") restored to $(get_color_code "yellow")$output_target$(get_color_code "unset")"
+        fi
     fi 
 }

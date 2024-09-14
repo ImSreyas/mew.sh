@@ -33,10 +33,14 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
             question=$(echo $question | sed -e "s/<</\\$(get_color_code $highlight_color)/g" -e "s/>>/\\$(get_color_code "unset")/g") 
             echo
             if [[ -f $output_target/$file_name ]]; then 
-                echo -ne "Update $question (y/n) : $(get_color_code "unset")"
+                if [[ $5 = "pull" ]]; then 
+                    echo -ne "Revert $question (y/n) : $(get_color_code "unset")"
+                else 
+                    echo -ne "Update $question (y/n) : $(get_color_code "unset")"
+                fi
             else 
                 if [[ $5 = "pull" ]]; then 
-                    echo -ne "Restor $question (y/n) : $(get_color_code "unset")"
+                    echo -ne "Restore $question (y/n) : $(get_color_code "unset")"
                 else 
                     echo -ne "Backup $question (y/n) : $(get_color_code "unset")"
                 fi
@@ -45,7 +49,7 @@ function sync_file() { # Arguments : $1) filename $2) file path $3) question
             if [[ ! $confirmation = "" ]]; then echo; fi # Only print new line if the confirmation is a character
             case $confirmation in 
                 "y" | "Y")
-                    update 
+                    update $5
                     break 
                     ;;
                 "n" | "N")
