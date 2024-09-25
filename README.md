@@ -69,17 +69,17 @@ upcoming features
 
 <h3 id="currently_supported"> Currently supported backup </h3>
 
-- [x] bash shell config
-- [x] fish shell config
-- [x] zsh shell config
-- [x] aliases file
-- [x] i3 config
-- [x] vim config 
-- [x] kitty config
-- [x] tmux config
-- [x] vscode user settings
-- [x] dnf user installed packages
-- [x] lf config
+✅  bash shell config <br>
+✅  fish shell config <br>
+✅  zsh shell config <br>
+✅  aliases file <br>
+✅  i3 config <br>
+✅  vim config <br>
+✅  kitty config <br>
+✅  tmux config <br>
+✅  vscode user settings <br>
+✅  dnf user installed packages <br>
+✅  lf config 
 - [ ] vscode installed extensions
 - [ ] nvim config
 - [ ] alacritty config
