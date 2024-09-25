@@ -105,7 +105,8 @@ Run the installation script (./install.sh) `OR` run the script given below
 ```bash
 git clone https://github.com/ImSreyas/mew.git
 cd mew
-sh install.sh
+chmod +x install.sh
+./install.sh
 ```
 
 <div align="center">
