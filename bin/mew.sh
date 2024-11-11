@@ -269,7 +269,8 @@ function fetch_files() {
                 mkdir -p $temp_dir
                 local temp_file_name=packages.txt
                 local temp_file_path=$temp_dir/$temp_file_name
-                dnf history userinstalled | tail -n +2 > $temp_file_path
+                # dnf history userinstalled | tail -n +2 > $temp_file_path
+                dnf repoquery --userinstalled > $temp_file_path
                 sync_file $temp_file_name $temp_file_path "<<dnf user-installed packages>> file?" $final_target/dnf $1 
                 rm -rf $temp_dir 
             elif [[ $1 = "pull" || $1 = "pullx" ]]; then
@@ -384,7 +385,7 @@ function remote_push() {
 			echo 
 			git add .
 			git commit -m "$push_message"
-			git push
+			git push origin main:main
 			cd -
 		else
 			echo -e "\n Please install 'git' before continuing"
