@@ -1,6 +1,6 @@
 <h1 align="center">
   <div>
-    <img width="100%" src="https://github.com/ImSreyas/mew/blob/assets/logo/logo.png" />
+    <img width="100%" src="https://github.com/ImSreyas/mew.sh/blob/assets/logo/logo.png" />
   </div>
 </h1>
 <div align="center">✨ A File Backup & Syncing command line tool for backing up dotfiles. 🐧 
@@ -156,21 +156,21 @@ Basic commands <br>
 <h2 id="preview">Snapshots 📸</h2>
 
 - push
-<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/push.png" />
+<img src="https://github.com/ImSreyas/mew.sh/blob/assets/screenshots/push.png" />
 
 - pull
-<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/pull.png" />
+<img src="https://github.com/ImSreyas/mew.sh/blob/assets/screenshots/pull.png" />
 
 - pushx
-<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/pushx.png" />
+<img src="https://github.com/ImSreyas/mew.sh/blob/assets/screenshots/pushx.png" />
 
 - pullx
-<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/pullx.png" />
+<img src="https://github.com/ImSreyas/mew.sh/blob/assets/screenshots/pullx.png" />
 
 - show
-<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/show.png" />
+<img src="https://github.com/ImSreyas/mew.sh/blob/assets/screenshots/show.png" />
 
 - help
-<img src="https://github.com/ImSreyas/mew/blob/assets/screenshots/help.png" />
+<img src="https://github.com/ImSreyas/mew.sh/blob/assets/screenshots/help.png" />
 
 
